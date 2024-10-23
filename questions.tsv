@@ -1,0 +1,110 @@
+Prompt	Domain	Data requirements	Data complexity level	Complexity notes
+How has the user wile.e.coyote@acme.corp behaved in the last month? Get their projects, invoices, usage for the projects, etc	Customer Support	1. Get information from User model and all its relationships, 2. Get Projects for the user, 3. Get Invoices for the user, 4. Usage for the Projects for the user	Medium	Relationship traversal
+Are there any customers facing high error rates?	Customer Support	1. Get `project_id` from Error model with `errors` ordered by count desc1. Get `project_id` from Requests model with `requests` ordered by count desc 	Medium	Efficient query plan
+Which customers are having the most requests?	Customer Support	1. Get `project_id` from Requests model with `requests` ordered by count desc	Medium	Efficient query plan
+How many support tickets were created in the last 7 days and how many of those are still open	Customer Support	1. Get Tickets of last 7 days with their `status` (closed/open)	Low	
+Are there any customers on paid plan who have created support tickets in the last 7 days	Customer Support	1. Get Tickets of last 7 days with the `email` of the submitter, 2. Get User for those emails 3. Get Projects with Plans for those users	Medium	Relational travel (multi-level)
+What’s the median resolution time of our tickets in the last 30 days	Customer Support	1. Get Tickets of last 30 days with creation time and closed time (if closed)	Medium	Large context
+Which customers have created the most number of tickets	Customer Support	1. Get all tickets with their email/id	Medium	Efficient query plan
+How many support tickets are related to downtime issues?	Customer Support	1. Get all tickets 	Medium	Large context
+Summarize all downtime issues since Aug 2023	Customer Support	1. Get all tickets	Medium	Large context
+Which customers have faced the most downtime issues?	Customer Support	1. Get all tickets with emails	High	Large context, efficient query plan
+Summarize the top complaints by users from support tickets in the last 30 days? 	Customer Support	1. Get all tickets of last 30 days with comments	Medium	Large context
+Categorize all unlabeled tickets as one of operational, feature request, bug report, how-to or others.	Customer Support	1. Get all unlabeled tickets	Medium	Efficient query plan
+Which users are at risk of churn, look at usage, support tickets, etc?	Customer Support	1. Get tickets from 30 or 90 days ago 2. Get hostnames where usage is low or zero 3. Get projects from 1. and 2.	High	Large context, Relationship traversal
+Which free plan users have high usage	Customer Support	1. Get projects on free plan 2. Get usage for those projects 	Medium	Relationship traversal
+Get me summary of project usage for customers who have downgraded plans in the last 30 days	Customer Support	1. Get projects from Project_Plan_Changes for last 30 days. 2. Get hostname for those Projects, 3. Get usage of those projects for last 30 days	Medium	Relationship traversal
+Which entitlements on paid plans are enabled on the least number of projects?	Customer Support	1. Get entitlements for paid plans from entitlement catalog. 2. Get entitlements for each project	High	Large context, Relationship traversal, efficient query plan
+How have entitlements changed for plans over time	Customer Support	1. Get all entitlements from Entitlements Catalog. 2. Get all Plan Entitlement Access	Medium	Compute
+Are there any support tickets that have not been responded to in the last 30 days	Customer Support	1. Get tickets and comments of last 30 days	Medium	Large context
+Give me a summary of project creations in last 30 days	Customer Support	1. Get projects created in the last 30 days	Low	
+Give me a summary of project usage in last 30 days	Customer Support	1. Get projects for last 30 days, 2. Get their usage	Medium	Relationship traversal
+Give me projects created in the last 24 hours	Customer Support	1. Get projects in the last 24 hours	Medium	Compute
+How many projects created in the last 24 hours are free trial	Customer Support	1. Get projects in the last 24 hours with plans	High	Compute, Relationship traversal
+When did wile@acme.corp signup	Customer Support	1. Get user details	Low	
+How many projects did wile@acme.corp create	Customer Support	1. Get projects for a user	Medium	Relationship traversal
+Has wile@acme.corp switched the type of plan for his project ?	Customer Support	1. Get plans for the users' projects	Medium	Relationship traversal
+Is wile@acme.corp on a paid plan?	Customer Support	1. Get latest plan for the user's projects	Medium	Relationship traversal
+Which projects have the user  "wile@acme.corp" ?	Customer Support	1. Get projects with this user	Medium	Relationship traversal
+List all projects that I created	Customer Support	1. Get projects for users	Medium	Compute
+Get me all pending invoices	Customer Support	1. Get invoices	Low	
+Which user has generated the most revenue? Look at invoices to see where the most amount of revenue is coming from.	Customer Support	1. Get invoices for Customer 2. Get corresponding project	High	Large context, Relationship traversal, Compute
+For all the base plan projects, get me their invoice amounts.	Customer Support	1. Get Projects with base plans. 2. Get invoices for those projects	High	Efficient query plan, Relationship traversal
+Get me all invoices data for wile@acme.corp	Customer Support	1. Get invoices for customer_id	Low	
+Can you figure out what all plans is “collaboration_access” entitlement a part of?	Customer Support	1. Get entitlement_id from Entitlement catalog 2. Get plans with entitlement_id in Plan Entitlement Access model	Medium	Relationship traversal
+Get project details for ticket #1234	Customer Support	1. Get Project from project_name or submitter email	Low	
+Help me prioritize support ticket #1234 amongst other open tickets based on user's plan, revenue and usage	Customer Support	1. Get all open tickets 2. Get project from project_name or email,3. Get plan from project 4. Get project invoices 5. get project usage	High	Relationship traversal, efficient query plan
+Are there any support tickets similar to #1234 	Customer Support	1. Get all tickets with comments	Medium	Large context
+How many tickets since monday? 	Customer Support	1. Get tickets since monday	Medium	Compute
+Any urgent tickets created today?	Customer Support	1. Get tickets for today	Medium	Compute 
+Give summary of all tickets created today 	Customer Support	1. Get tickets for today	Medium	Compute
+Get all tickets related to “mutations in mongodb” and summarize	Customer Support	1. Search tickets by phrase	Medium	Large context
+Is there any support engineer who has a lot of open support tickets assigned to them?	Customer Support	1. Get assignees for all open tickets	Medium	Efficient query plan
+Help me assign a support engineer to ticket #1234 based on who has least open tickets assigned to them	Customer Support	1. Get assignees for all open tickets	Medium	Efficient query plan
+Give me a summary of overall support satisfaction for Acme.corp	Customer Support	1. Get tickets with comments for an org	Medium	Efficient query plan
+How many open tickets do I have, get me the last comment and summary from each of those	Customer Support	1. Get open tickets with comments for assignee	Medium	Efficient query plan
+Get me all project details and usage stats for support ticket #1234	Customer Support	1. Get project and usage stats from email	Medium	Relationship traversal
+What's the average time in responding to a support ticket?	Customer Support	1. Get all tickets with comments	Hard	Large context, compute
+Suggest an assignee for ticket #1234 based on who has solved similar cases in the past	Customer Support	1. Get all tickets	Medium	Compute
+Get all support tickets which have not been responded to at all 	Customer Support	1. Get tickets with no comments	Medium	Efficient query plan
+Schedule a meeting called Monthly Review on the coming Wednesday at 4 PM and invite Wile E Coyote.	Email + Calendar	1. Create event. 2. Create event_attendee	Low	
+Move the Monthly Review meeting to 5 pm.	Email + Calendar	1. Update event	Low	
+Send a reminder about the Monthly Review meeting 2 hours before it starts.	Email + Calendar	1. Get event 2. Create Reminder	Medium	Compute
+Find common time on Wile E Coyote and my calendar on Monday and schedule a meeting for 30 mins	Email + Calendar	1. Get events 2. Create event	Medium	Compute
+When is my next meeting?	Email + Calendar	1. Get events	Low	
+What does my schedule look like this week?	Email + Calendar	1. Get events	Low	
+What does my schedule look like today?	Email + Calendar	1. Get events	Low	
+Am I free at 3 PM on Thursday?	Email + Calendar	1. Get events	Low	
+Who all are invited to “Monthly Review” meeting?	Email + Calendar	1. Get event_id 2. get event attendees	Medium	Relationship traversal
+How many hours of meeting did I have this week?	Email + Calendar	1. Get events 		Compute
+How many hours of meeting with Acme.corp did I have this month	Email + Calendar	1. Get events	Medium	Efficient query plan/compute
+Set up a recurring meeting called Stand Up at 9 am every weekday starting this Monday.	Email + Calendar	1. Create event	Low	
+Show me unread emails from the past week which are important/urgent.	Email + Calendar	1. Get emails	Medium	Compute
+Reply to wile.e.coyote@acme.corp's last email with the body "Will get back to you by tomo".	Email + Calendar	1. Get email 2. Create email	Hard	Relationship traversal, Efficient query plan
+Send an email to wile.e.coyote@acme.corp saying “Let's catchup”	Email + Calendar	1. Create email	Low	
+Summarize the emails from wile.e.coyote@acme.corp in the last week	Email + Calendar	1. Get emails	Medium	Efficient query plan
+Remind me to follow up with wile.e.coyote@acme.corp if he doesn't reply by Friday.	Email + Calendar	??	Hard	
+How many emails did I receive last week?	Email + Calendar	1. Get emails	Medium	Compute
+Who do I email most often?	Email + Calendar	1. Get emails	Medium	Efficient query plan
+Show me all travel confirmations in my inbox this month.	Email + Calendar	1. Get emails	Medium	Compute
+What was that email I sent to wile.e.coyote@acme.corp about submitting my application to business school?	Email + Calendar	1. Get emails	Hard	Efficient query plan, Compute
+Show me all emails about business school applications that I have recieved	Email + Calendar	1. Get emails	Hard	Large context, compute
+Show me travel confirmation from American Airlines?	Email + Calendar	1. Get emails	Hard	Large context, compute
+Do I have a tax email this week?	Email + Calendar	1. Get emails	Medium	Compute
+Show me food orders this week	Email + Calendar	1. Get emails	Medium	Compute
+List my Uber receipt numbers, price amounts, and destinations from the last month	Email + Calendar	1. Get emails	Hard	Large context, compute
+Get my latest Brex statement	Email + Calendar	1. Get emails	Medium	Efficient query plan
+Summarize my upcoming business travel itinerary for next week with flight numbers, hotels, and car rentals.	Email + Calendar	1. Get emails	Medium	Compute
+Generate an expense report from my emails for all purchases in the past quarter.	Email + Calendar	1. Get emails	Medium	Compute
+How many days did I spend traveling for business in the last quarter?	Email + Calendar	1. Get emails	Medium	Compute
+Extract the invoice numbers, amounts, and due dates from all the attached invoices from the last month.	Email + Calendar	1. Get emails	Medium	Compute
+Which emails from the last week need follow-up ?	Email + Calendar	1. Get emails	Medium	Compute
+Identify all emails where I committed to tasks and summarize the deadlines.	Email + Calendar	1. Get emails	Medium	Compute
+Identify all emails containing contracts from last quarter and pull out the signing dates and key clauses.	Email + Calendar	1. Get emails	Medium	Compute
+List all emails where I was cc’d in legal conversations over the past 6 months.	Email + Calendar	1. Get emails	Hard	Large context/efficient query plan, compute
+Give amounts and categorize all receipts from the last month into 'Meals,' 'Transport,' and 'Lodging' for expense filing.	Email + Calendar	1. Get emails	Medium	Compute
+Get me the latest status on Acme opportunity	Sales	1. Get opportunity	Low	
+Summarize all the emails from Acme	Sales	1. Get opportunity, 2. Get activities	Medium	Relationship traversal
+Get call transcripts and emails for Acme and fill in the opportunity form	Sales	1. Get opportunity, 2. Get transcripts, 3. Get emails	Hard	Relationship traversal, compute
+Show all my opportunities closing this month	Sales	1, Get opportunities	Low	
+Are there any follow up tasks for me to be done today	Sales	1. Get activities 	Medium	Compute
+What’s the average length of our sales cycle this quarter	Sales	1. Get opportunities	Medium	Compute
+What’s the average length of our sales cycle this year	Sales	1. Get opportunities	Hard	Large context/efficient query plan, Compute
+What renewals are coming up in the next 30 days	Sales	1. Get opportunities	Medium	Compute
+What deals are set to close this fiscal quarter	Sales	1. Get opportunities	Medium	Compute
+How many accounts do we have XYZ=true	Sales	1. Get accounts	Low	
+How many accounts with ACBD=true are assigned to Wile	Sales	1. Get accounts	Medium	Efficient query plan
+How long did it take to close Acme 2024?	Sales	1. Get opportunity	Medium	Compute
+How many accounts does Wile own?	Sales	1. Get accounts	Low	
+How many leads were created this week?	Sales	1. Get leads	Low	
+What is the breakdown of lead sources this week?	Sales	1. Get leads	Medium	Compute
+Can you summarize lead sources for this week?	Sales	1. Get leads	Medium	Compute
+Get me the last email from Acme opp	Sales	1. Get opportunity	Medium	Efficient query plan
+Are there any next steps for an opp which doesn't have a task created ?	Sales	1. Get opportunity 2. Get tasks	Medium	Relationship traversal
+How many deals have been won by sales representatives this quarter?	Sales	1. Get opportunities	Medium	Compute
+Provide a summary of the first renewal for Acme	Sales	1. Get opportunity	Medium	Compute
+When was the last touchpoint for first renewal for Acme	Sales	1. Get opportunity	Low	
+What happened in the last touch point with Acme	Sales	1. Get opportunity, 2. Get activity	Medium	Relationship traversal
+Summarize everything that happened with Acme in Oct	Sales	1. Get opportunity 2. Get activity	Medium	Relationship traversal
+Which opportunities are taking the longest time to close?	Sales	1. Get opportunities	Medium	Compute
+What’s the average time between email activities for the Acme opp	Sales	1. Get opportunities, Get activity	Hard	Relationship traversal, compute

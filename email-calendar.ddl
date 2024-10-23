@@ -2,27 +2,14 @@
 CREATE TABLE users (
     user_id BIGSERIAL PRIMARY KEY,
     email VARCHAR(255) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
     first_name VARCHAR(100),
     last_name VARCHAR(100),
     date_of_birth DATE,
     phone_number VARCHAR(20),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     last_login TIMESTAMP,
-    is_verified BOOLEAN DEFAULT FALSE,
-    two_factor_enabled BOOLEAN DEFAULT FALSE
 );
 
--- Labels/Categories for organizing emails
-CREATE TABLE labels (
-    label_id BIGSERIAL PRIMARY KEY,
-    user_id BIGINT REFERENCES users(user_id),
-    name VARCHAR(50) NOT NULL,
-    color VARCHAR(7),
-    is_system BOOLEAN DEFAULT FALSE,  -- For system labels like 'Inbox', 'Sent', 'Trash'
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE(user_id, name)
-);
 
 -- Emails table for storing message content and metadata
 CREATE TABLE emails (
@@ -56,12 +43,6 @@ CREATE TABLE attachments (
     uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Email-Label relationship (many-to-many)
-CREATE TABLE email_labels (
-    email_id BIGINT REFERENCES emails(email_id),
-    label_id BIGINT REFERENCES labels(label_id),
-    PRIMARY KEY (email_id, label_id)
-);
 
 -- User-specific email metadata
 CREATE TABLE user_email_metadata (
@@ -76,31 +57,6 @@ CREATE TABLE user_email_metadata (
     PRIMARY KEY (user_id, email_id)
 );
 
--- Contacts table
-CREATE TABLE contacts (
-    contact_id BIGSERIAL PRIMARY KEY,
-    user_id BIGINT REFERENCES users(user_id),
-    email VARCHAR(255) NOT NULL,
-    first_name VARCHAR(100),
-    last_name VARCHAR(100),
-    company VARCHAR(100),
-    phone_number VARCHAR(20),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE(user_id, email)
-);
-
--- Settings table for user preferences
-CREATE TABLE email_user_settings (
-    user_id BIGINT REFERENCES users(user_id) PRIMARY KEY,
-    language VARCHAR(10) DEFAULT 'en',
-    timezone VARCHAR(50),
-    emails_per_page INTEGER DEFAULT 50,
-    vacation_responder_enabled BOOLEAN DEFAULT FALSE,
-    vacation_responder_message TEXT,
-    signature TEXT,
-    theme VARCHAR(20) DEFAULT 'light',
-    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
 
 -- Calendars table for multiple calendars per user
 CREATE TABLE calendars (
@@ -131,7 +87,6 @@ CREATE TABLE events (
     recurrence_rule TEXT,  -- iCal RRULE format
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    color VARCHAR(7),  -- Override calendar color
     visibility VARCHAR(20) DEFAULT 'default',  -- 'default', 'public', 'private'
     status VARCHAR(20) DEFAULT 'confirmed',  -- 'confirmed', 'tentative', 'cancelled'
     busy_status VARCHAR(20) DEFAULT 'busy',  -- 'busy', 'free'
@@ -152,14 +107,6 @@ CREATE TABLE event_attendees (
     PRIMARY KEY (event_id, email)
 );
 
--- Calendar sharing and permissions
-CREATE TABLE calendar_sharing (
-    calendar_id BIGINT REFERENCES calendars(calendar_id),
-    user_id BIGINT REFERENCES users(user_id),
-    permission_level VARCHAR(20) NOT NULL,  -- 'read', 'write', 'owner'
-    shared_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (calendar_id, user_id)
-);
 
 -- Reminders for events
 CREATE TABLE reminders (
@@ -170,41 +117,3 @@ CREATE TABLE reminders (
     minutes_before INTEGER NOT NULL,  -- Time before event to send reminder
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
--- Recurring event exceptions
-CREATE TABLE recurring_event_exceptions (
-    exception_id BIGSERIAL PRIMARY KEY,
-    event_id BIGINT REFERENCES events(event_id),  -- Original recurring event
-    exception_date DATE NOT NULL,  -- Date of the exception
-    modification_type VARCHAR(20) NOT NULL,  -- 'cancelled', 'modified'
-    modified_event_id BIGINT REFERENCES events(event_id),  -- New event if modified
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- User settings for calendar preferences
-CREATE TABLE calendar_user_settings (
-    user_id BIGINT REFERENCES users(user_id) PRIMARY KEY,
-    default_calendar_id BIGINT REFERENCES calendars(calendar_id),
-    default_view VARCHAR(20) DEFAULT 'month',  -- 'day', 'week', 'month', 'agenda'
-    week_starts_on INTEGER DEFAULT 0,  -- 0 (Sunday) through 6 (Saturday)
-    show_declined_events BOOLEAN DEFAULT FALSE,
-    default_reminder_minutes INTEGER DEFAULT 30,
-    timezone VARCHAR(50) DEFAULT 'UTC',
-    working_hours_start TIME,
-    working_hours_end TIME,
-    working_days INTEGER[],  -- Array of days (0-6)
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Event attachments
-CREATE TABLE event_attachments (
-    attachment_id BIGSERIAL PRIMARY KEY,
-    event_id BIGINT REFERENCES events(event_id),
-    file_name VARCHAR(255) NOT NULL,
-    file_size BIGINT NOT NULL,
-    file_type VARCHAR(100),
-    storage_path VARCHAR(512),
-    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    uploaded_by BIGINT REFERENCES users(user_id)
-);
-

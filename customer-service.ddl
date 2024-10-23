@@ -25,17 +25,6 @@ CREATE TABLE Projects (
     FOREIGN KEY (owner_id) REFERENCES Users(id)
 );
 
--- Environment table
-CREATE TABLE Environment (
-    id UUID PRIMARY KEY,
-    hostname TEXT UNIQUE NOT NULL,
-    project_id UUID NOT NULL,
-    created_at TIMESTAMPTZ NOT NULL,
-    updated_at TIMESTAMPTZ NOT NULL,
-    deleted_at TIMESTAMPTZ,
-    FOREIGN KEY (project_id) REFERENCES Projects(id)
-);
-
 -- Invoice table
 CREATE TABLE Invoice (
     stripe_invoice_id TEXT PRIMARY KEY,
@@ -124,19 +113,51 @@ CREATE TABLE Project_Plan_Changelogs (
 );
 
 
-CREATE TABLE Requests_Daily_Count (
-    hostname TEXT,
+CREATE TABLE  Requests_Daily_Count (
+    project_id  UUID,
     date DATE NOT NULL,
     request_count INTEGER NOT NULL,
-    FOREIGN KEY (hostname) REFERENCES Environment(hostname)
+    PRIMARY KEY (project_id, date),
+    FOREIGN KEY (project_id) REFERENCES Projects(id)
 );
 
-CREATE TABLE Error_Rate_Daily (
+
+CREATE TABLE IF NOT EXISTS Error_Rate_Daily (
+    project_id  UUID ,
     date DATE NOT NULL,
-    hostname TEXT NOT NULL,
     success_count INTEGER,
     error_count INTEGER,
     error_rate FLOAT,
-    FOREIGN KEY (hostname) REFERENCES Environment(hostname)
+    PRIMARY KEY (project_id, date),
+    FOREIGN KEY (project_id) REFERENCES Projects(id)    
 );
 
+CREATE TABLE IF NOT EXISTS Support_User (
+    id INTEGER PRIMARY KEY,
+    email text,
+    role text
+);
+
+CREATE TABLE IF NOT EXISTS Support_Ticket (
+    id INTEGER PRIMARY KEY,
+    is_public BOOLEAN NOT NULL,
+    priority TEXT,
+    status TEXT,
+    subject TEXT,
+    description TEXT,
+    type TEXT,
+    assignee_id INTEGER,
+    requester_id INTEGER,
+    created_at TIMESTAMPTZ,
+    url TEXT,
+    FOREIGN KEY (assignee_id) REFERENCES Support_User(id),
+    FOREIGN KEY (requester_id) REFERENCES Support_User(id)
+);
+
+CREATE TABLE IF NOT EXISTS Support_Ticket_Comment (
+    id INTEGER PRIMARY KEY,
+    body TEXT,
+    created_at TIMESTAMPTZ,
+    user_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES Support_User(id)
+);
