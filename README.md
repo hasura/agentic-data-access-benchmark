@@ -48,3 +48,12 @@ In total we have 138 questions, the high level breakdown of the question on diff
   </tr>
   <td><img src="./common_complexity_factor_combinations.png" alt="Common complexity combinations" width="400"></td>
 </table>
+
+## Analyzing sample questions
+
+TODO
+
+
+## What's next
+
+TODO
