@@ -11,6 +11,32 @@ to sufficient data and is unable to perform complex or sequential operations ove
 
 ## About the questions
 
+The question set is hosted here: https://huggingface.co/datasets/hasura/agentic-data-access-benchmark
+
+We use a couple of domains to show what data access and operations are required from a decently powerful AI assistant. We will describe them below.
+
+### Customer Support
+
+TODO
+
+### Email + Calendar
+
+TODO
+
+### Sales
+
+TODO
+
+### HR
+
+TODO
+
+### Engineering Management
+
+TODO
+
+In total we have 138 questions, the high level breakdown of the question on different dimensions is visualized below.
+
 <table>
   <tr>
     <td><img src="./query_distribution_by_domain.png" alt="Question distribution by domain" width="400"></td>
@@ -18,7 +44,7 @@ to sufficient data and is unable to perform complex or sequential operations ove
   </tr>
   <tr>
     <td><img src="./complexity_distribution_by_domain.png" alt="Complexity distribution by domain" width="400"></td>
-    <td><img src="./distribution_complexity_factors.png" alt="Distribution of complexity factors" width="500"></td>
+    <td><img src="./distribution_complexity_factors.png" alt="Distribution of complexity factors" width="400"></td>
   </tr>
-  <td><img src="./common_complexity_factor_combinations.png" alt="Common complexity combinations" width="500"></td>
+  <td><img src="./common_complexity_factor_combinations.png" alt="Common complexity combinations" width="400"></td>
 </table>
