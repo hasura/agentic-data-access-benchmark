@@ -54,7 +54,28 @@ In total we have 138 questions, the high level breakdown of the question on diff
 
 ## Analyzing sample questions
 
-TODO
+Let's look at few sample questions and analyze qualitatively what it would take to make it work effectively.
+
+**Q1:** (CS domain) *Are there any customers on paid plan who have created support tickets in the last 7 days*
+
+This question requires fetching support tickets in the last 7 days, getting the id or email or project of the ticket submitter, geting their corresponding projects, checking if the plan is paid for those projects. There are various complexities in performing the aforementioned procedure, for instance, the number of support tickets could be quite high (few thousands for a large company) causing large context problems, extracting identifying information from a ticket can be tricky because it could have been created through different channels (direct ticketing, email, phone number, etc) with different kind of identifying information. Getting corresponding projects can have absolutely no mistakes - because it is business critical and sensitive information. Lastly, the plan may not be called "paid" verbatim and hence ensuring that it uses the right values becomes tricky.
+
+**Q2:** (Email domain) *Summarize my upcoming business travel itinerary with flight numbers, hotels, car rentals, etc*
+
+This question requires searching through recent emails to look for travel related bookings. It also may be required to extract necessary information from attachments in those emails.
+There are various complexities in performing this task well: we do not know how many emails in the past to look at, there may be more than one business travel in the future hence grouping related business travel together is very important, information extraction from attachements could be tricky and most importantly, there should not be any wrong information (missing information is still fine).
+
+**Q3:** (Sales domain) *Look at recent activities on Acme Corp opportunity and list follow-up tasks from the activity notes*
+
+This question requires finding the right opportunity, looking at the detailed summary/notes in the activity or fetching the corresponding call transcripts and finding tasks mentioned in those activities. The main complexity here is understanding implicit relationships in data i.e. activity -> email/call transcript and traversing such implicit relationships effectively.
+
+**Q4:** (HR domain) *What is the average hours count and dollar amount of PTO paid out to departing team members?*
+
+This question requires performing a complex calculation over a highly interconnected data model. This is a business critical query and hence there can be no mistakes. For example, it must be ensured that the team members used in the calculations have indeed left the company, there should be no ambiguity around currency conversions, leftover PTOs should be calculated according to the latest policy, etc.
+
+**Q5:** (Engineering domain) *Suggest a reviewer for PR 1234 by seeing who has contributed the most to the files that have changed in the PR and previous commiters*
+
+This question needs to make few intelligent decisions e.g. look for recent contributors instead of lifetime contributors, suggest reviewers who are currently in the org (and not departed employees), etc. Note that extracting the file names and commit history for those files can also be challenging e.g. look for commit history in `main` branch instead of the PR branch.
 
 
 ## What's next
