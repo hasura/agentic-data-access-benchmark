@@ -13,6 +13,18 @@ to sufficient data and is unable to perform complex or sequential operations ove
 
 The question set is hosted here: https://huggingface.co/datasets/hasura/agentic-data-access-benchmark
 
+Preview:
+
+| Prompt | Domain | Data requirements | Data complexity level | Complexity notes |
+|--------|---------|-------------------|---------------------|------------------|
+| Are there any customers facing high error rates? | Customer Support | 1. Get `project_id` from Error with `errors` ordered by count desc | Medium | Efficient query plan |
+| Are there any customers on paid plan who have created support tickets in the last 7 days | Customer Support | 1. Get Tickets of last 7 days with the `email` of the submitter<br>2. Get Users for those emails<br>3. Get Projects with Plans for those users | Medium | Relationship traversal |
+| Summarize all downtime issues since Aug 2023 | Customer Support | 1. Get Tickets from Aug 2023 | Medium | Large context |
+| Which customers have faced the most downtime issues? | Customer Support | 1. Get all Tickets with `email` | High | Large context/Efficient query plan, Compute |
+| What's the average time in responding to a support ticket? | Customer Support | 1. Get all Tickets with Ticket comments | High | Large context, Compute |
+| Which users are at risk of churn, look at usage, support tickets, etc? | Customer Support | 1. Get Tickets from ~90 days ago<br>2. Get Projects where Usage is low or zero<br>3. Get Projects where Errors are high | High | Large context, Relationship traversal, Compute |
+| Help me prioritize support ticket #1234 amongst other open tickets based on user's plan, revenue and usage | Customer Support | 1. Get all Tickets with `status=open`<br>2. Get Project from project_name or submitter email<br>3. Get Plan from Project<br>4. Get Invoices from project<br>5. Get Usage from Project | High | Relationship traversal, efficient query plan |
+
 We use a select set of common domains as a guiding "north star" to illustrate the long-term vision for what an AI assistant/agent should be capable of achieving.
 These domains are described below in brief.
 
