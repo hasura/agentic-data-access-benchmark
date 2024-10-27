@@ -9,6 +9,8 @@ ADA benchmark was created because of severe short-comings found in closed domain
 the assistants were struggling to do anything new. This was found to be because the assistant is not connected 
 to sufficient data and is unable to perform complex or sequential operations over that data. We call the ability of an AI system, given the description of data, to agentically use and operate on that data as agentic data access.
 
+TODO: Add input/output diagram
+
 ## About the questions
 
 The question set is hosted here: https://huggingface.co/datasets/hasura/agentic-data-access-benchmark
@@ -26,7 +28,7 @@ Preview:
 | Help me prioritize support ticket #1234 amongst other open tickets based on user's plan, revenue and usage | Customer Support | 1. Get all Tickets with `status=open`<br>2. Get Project from project_name or submitter email<br>3. Get Plan from Project<br>4. Get Invoices from project<br>5. Get Usage from Project | High | Smart search strategy, Following connections |
 
 We use a select set of common domains as a guiding "north star" to illustrate the what an AI assistant/agent could be capable of achieving.
-These domains are Customer Support, Email+Calendar, Sales, HR, Engineering Management and described in brief [here](./domain-descriptions.md).
+These domains are Customer Support, Email+Calendar, Sales, HR, Engineering Management and described in brief [here](./domains/domain-descriptions.md).
 
 ### Overall statistics
 
@@ -99,4 +101,7 @@ This use-case essentially involves visualizing or transforming data in a way whe
 
 ## What's next
 
-TODO
+We are providing raw data for these domains in the `domains` folder (Note: we are starting with Customer Support first). 
+You can evaluate the capabilities of your AI assistant by incorporating this data into your architecture and trying it with your LLMs.
+
+We, at Hasura, have built PromptQL for agentic data access needs. Go to hasura.io/promptql to learn more. 
