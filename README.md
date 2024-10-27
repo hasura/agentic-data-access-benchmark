@@ -1,13 +1,13 @@
 # Agentic Data Access benchmark (ADA benchmark)
 
-Agentic Data Access benchmark is a set of real-world questions over few "closed domains" which can benefit tremendously from AI assistants/agents.
-Closed domains are domains where data is not available implicitly in the LLM as they reside in secure or private systems e.g. enterprise databases.
-If you are evaluating an AI product or building your own assistant over closed domains, then you can use the nature of questions here to qualitatively measure 
-the capabilities of your assistants/agents.
+Agentic Data Access benchmark is a set of real-world questions over few "closed domains" to illustrate the evaluation of closed domain AI assistants/agents.
+Closed domains are domains where data is not available implicitly in the LLM as they reside in secure or private systems e.g. enterprise databases, SaaS applications, etc
+and AI solutions require mechanisms to connect an LLM to such data. If you are evaluating an AI product or building your own AI architecture over closed domains, then you can use 
+these questions/nature of questions to understand the capabilities of your system and qualitatively measure the performance of your assistants/agents.
 
-ADA benchmark was created because of severe short-comings found in closed-domain assistants in the wild. We found that apart from few basic canned questions or workflows,
+ADA benchmark was created because of severe short-comings found in closed domain assistants in the wild. We found that apart from few basic canned questions or workflows,
 the assistants were struggling to do anything new. This was found to be because the assistant is not connected 
-to sufficient data and is unable to perform complex or sequential operations over that data. We call the ability of an AI system to agentically use and operate on data as agentic data access.
+to sufficient data and is unable to perform complex or sequential operations over that data. We call the ability of an AI system, given the description of data, to agentically use and operate on that data as agentic data access.
 
 ## About the questions
 
