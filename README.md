@@ -26,7 +26,7 @@ Preview:
 | Help me prioritize support ticket #1234 amongst other open tickets based on user's plan, revenue and usage | Customer Support | 1. Get all Tickets with `status=open`<br>2. Get Project from project_name or submitter email<br>3. Get Plan from Project<br>4. Get Invoices from project<br>5. Get Usage from Project | High | Smart search strategy, Following connections |
 
 We use a select set of common domains as a guiding "north star" to illustrate the what an AI assistant/agent could be capable of achieving.
-These domains are Customer Support, Email+Calendar, Sales, HR, Engineering Management and described in brief [here](./domain-descripions.md).
+These domains are Customer Support, Email+Calendar, Sales, HR, Engineering Management and described in brief [here](./domain-descriptions.md).
 
 ### Overall statistics
 
