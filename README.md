@@ -44,34 +44,51 @@ In total we have 138 questions, the high level breakdown of the question on diff
   <td><img src="./common_complexity_factor_combinations.png" alt="Common complexity combinations" width="400"></td>
 </table>
 
-## Primitive functionalities
+## Use-case categories
 
-TODO
+Below we describe fundamental use-cases which are common across all domains: 
 
-## Analyzing sample questions
+### Multi-step data retrieval
 
-Let's look at few sample questions and analyze qualitatively what it would take to make it work effectively.
+This use-case involves fetching data from multiple locations e.g. fetching data from different tables in a database, getting data from different databases, etc
+It is possible that the data from one step is used in the next step (composition) as well.
 
-**Q1:** (CS domain) *Are there any customers on paid plans who have created support tickets in the last 7 days*
+*Example question (Customer Support):*  Get the projects, invoices, project usage for the user wile@acme.corp 
 
-This question requires fetching support tickets in the last 7 days, getting the id or email or project of the ticket submitter, geting their corresponding projects, checking if the plan is paid for those projects. There are various complexities in performing the aforementioned procedure, for instance, the number of support tickets could be quite high (few thousands for a large company) causing large context problems, extracting identifying information from a ticket can be tricky because it could have been created through different channels (direct ticketing, email, phone number, etc) with different kind ofidentifying information. Getting corresponding projects can have absolutely no mistakes - because it is business critical. Lastly, there could be multiple SKUs for a "paid" plan.
+### Data aggregation
 
-**Q2:** (Email domain) *Summarize my upcoming business travel itinerary with flight numbers, hotels, car rentals, etc*
+This use-case involves aggregating data from simpler data points e.g. counting, summing, grouping on list of items.
+Note that for AI assistants, most of the aggregations would be for adhoc analysis where existing dashboards may not suffice or require non-trivial work. 
 
-This question requires searching through recent emails to look for travel related bookings. It also may be required to extract necessary information from attachments in those emails.
-There are various complexities in performing this task well: we do not know how many emails in the past to look at, there may be more than one business travel in the future hence grouping related business travel together is very important, information should be extracted from attachements and most importantly, there should not be any wrong information (missing information is still fine).
+*Example question (HR):* What is the average hours count and dollar amount of PTO paid out to departing team members?
 
-**Q3:** (Sales domain) *Look at recent activities on Acme Corp opportunity and list follow-up tasks from the activity notes*
 
-This question requires finding the right opportunity, looking at the detailed summary/notes in the activities for that opportunity or fetching the corresponding call transcripts/email threads. The main complexity here is understanding implicit relationships in data i.e. activity -> email/call transcript and traversing such implicit relationships effectively.
+### Bulk classification
 
-**Q4:** (HR domain) *What is the average hours count and dollar amount of PTO paid out to departing team members last year?*
+This use-case involves finding relevant items over bulk data by classifying/categorizing them as relevant or not.
+Usually the classification is based on textual input rather than structured attributes.
 
-This question requires performing a complex calculation over a highly interconnected data model. This is a business critical query and hence there can be no mistakes. For example, it must be ensured that team members used in the calculations are exactly the ones leaving last year, currency should be converted appropriately, ideally actual pay documents with PTO payment should be extracted as well for references.
+*Example question (Email):* Get all receipts from food orders this month
 
-**Q5:** (Engineering domain) *Suggest a reviewer for PR 1234 by seeing who has contributed the most to the files that have changed in the PR and previous commiters*
 
-To give a good answer here requires making a few intelligent decisions e.g. look for recent contributors instead of lifetime contributors, suggest reviewers who are currently in the org (and not departed employees), look for contributors in the specific team of the PR creator, etc. 
+### Point search
+
+This use-case involves finding the most relevant item(s) with complex characteristics over bulk data.
+
+*Example question (Email):* Find me the email from Wile where I spoke about business strategy
+
+### Structured information extraction
+
+This use-case involves extracting information from textual data in a structured format so it can be fed to other systems.
+
+*Example question (Sales):*  Create a new opportunity for Acme corp from recent call transcripts, fill in Opportunity Name, Segment, Product SKU, ARR and Next Steps
+
+
+### Data visualization
+
+This use-case essentially involves visualizing or transforming data in a way where it is more easily consumable for a human.
+
+*Example question (Email):* How have I spent my time on meetings this month?
 
 
 ## What's next
