@@ -55,6 +55,7 @@ It is possible that the data from one step is used in the next step (composition
 
 *Example question (Customer Support):*  Get the projects, invoices, project usage for the user wile@acme.corp 
 
+
 ### Data aggregation
 
 This use-case involves aggregating data from simpler data points e.g. counting, summing, grouping on list of items.
@@ -62,6 +63,11 @@ Note that for AI assistants, most of the aggregations would be for adhoc analysi
 
 *Example question (HR):* What is the average hours count and dollar amount of PTO paid out to departing team members?
 
+### Bulk insights
+
+This use-case involves going to each data item and creating specific insights for each one of them
+
+*Example question (Customer Support):* For all tickets open for more than a week, tell me what they are blocked on?
 
 ### Bulk classification
 
