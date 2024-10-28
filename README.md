@@ -39,13 +39,14 @@ In total we have 138 questions, the high level breakdown of the question on diff
 <table>
   <tr>
     <td><img src="./query_distribution_by_domain.png" alt="Question distribution by domain" width="400"></td>
-    <td><img src="./query_complexity_distribution.png" alt="Question distribution by complexity" width="400"></td>
+    <td><img src="./complexity-levels-by-domain.png" alt="Question distribution by complexity" width="400"></td>
   </tr>
   <tr>
-    <td><img src="./complexity_distribution_by_domain.png" alt="Complexity distribution by domain" width="400"></td>
-    <td><img src="./distribution_complexity_factors.png" alt="Distribution of complexity factors" width="400"></td>
+    <td><img src="./agentic-complexity-levels.png" alt="Agentic complexity levels" width="400"></td>
+    <td><img src="./agentic-complexity-types.png" alt="Agentic complexity types" width="400"></td>
   </tr>
-  <td><img src="./common_complexity_factor_combinations.png" alt="Common complexity combinations" width="400"></td>
+  <td><img src="./use-case-category-distribution.png" alt="Use-case categories distribution" width="400"></td>
+  <td><img src="./use-cases-by-domain.png" alt="Use-case categories by domain" width="400"></td>
 </table>
 
 ## Use-case categories
