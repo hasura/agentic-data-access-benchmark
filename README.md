@@ -1,6 +1,6 @@
-# Agentic Data Access benchmark (ADAB)
+# Agentic Data Access Benchmark (ADAB)
 
-Agentic Data Access benchmark is a set of real-world questions over a few "closed domains" to illustrate the evaluation of AI assistants/agents in closed domains.
+Agentic Data Access Benchmark is a set of real-world questions over a few "closed domains" to illustrate the evaluation of AI assistants/agents in closed domains.
 Closed domains are domains where data is not available implicitly in the LLM as they reside in secure or private systems e.g. enterprise databases, SaaS applications, etc,
 and AI solutions require mechanisms to connect an LLM to such data. If you are evaluating an AI product or building your own AI architecture over closed domains, then you can use 
 these questions/nature of questions to understand the capabilities of your system and qualitatively measure the performance of your assistants/agents.
