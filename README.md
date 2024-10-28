@@ -10,7 +10,7 @@ the assistants were struggling to do anything new. This was found to be because 
 to sufficient data and is unable to perform complex or sequential operations over that data. We call the ability of an AI system, given the description of data, to agentically use and operate on that data as agentic data access.
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/d5218bfa-2596-48ff-b0c4-65500fe18b08" alt="Agentic data access" width="600">
+<img src="./agentic-data-access-flowchart.png" alt="Agentic data access" width="600">
 </p>
 
 ## About the questions
