@@ -19,7 +19,7 @@ The question set is hosted here: https://huggingface.co/datasets/hasura/agentic-
 
 Preview:
 
-| Prompt | Domain | Data requirements | Data complexity level | Agentic complexity notes |
+| User goal | Domain | Data requirements | Data complexity level | Agentic complexity notes |
 |--------|---------|-------------------|---------------------|------------------|
 | Show me unread emails from the past week which are important or need follow-up. | Email + Calendar | 1. Get Emails in time range 2. Get Email Metadata | High | Following connections, Compute |
 | Get all receipts from food orders this week | Email + Calendar | 1. Get Emails in time range 2. Get attachments | High | Following connections, Compute |
@@ -51,7 +51,7 @@ In total we have ~130 questions, the high level breakdown of the question on dif
 
 ## Use-case categories
 
-Below we describe fundamental use-cases which are common across all domains: 
+Below we describe fundamental use-case categories which are common across all domains: 
 
 ### Multi-step data retrieval
 
