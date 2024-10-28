@@ -106,4 +106,4 @@ This use-case essentially involves visualizing or transforming data in a way whe
 We are providing raw data for these domains in the `domains` folder (Note: we are starting with Customer Support first). 
 You can evaluate the capabilities of your AI assistant by incorporating this data into your architecture and trying it with your LLMs.
 
-We, at Hasura, have built PromptQL for agentic data access needs. Go to hasura.io/promptql to learn more. 
+We, at Hasura, have built PromptQL for agentic data access needs. Go to https://hasura.io/promptql to learn more. 
