@@ -1,0 +1,21 @@
+id,type,created_at,updated_at,config_limit,config_is_enabled,name,base_cost
+af0e45b2-8a59-4ef5-96d0-be9926d3feb0,promptql_access,2024-10-09 15:51:30.614323+00,2024-10-09 15:51:30.614323+00,,t,promptql_access_enabled,
+31c5a807-d325-4abc-a6dc-626bd9d5babd,environment_limit,2023-07-03 00:56:52.481436+00,2023-07-03 00:56:52.481436+00,10,t,max_10_environments,
+c0ff5150-e0ee-4bae-8d87-6023d66954cd,metadata_size_limit,2023-07-03 00:56:52.481436+00,2023-07-03 00:56:52.481436+00,104857600,t,100mb_metadata_size_limit,
+1b556124-08a5-4ab5-a0d0-eb575d2cd614,active_model_hits,2024-02-16 12:30:38.725853+00,2024-02-16 12:30:38.725853+00,100000,t,max_model_count,5
+b0fe4bd4-9a5f-4220-ba03-7dcd87949581,active_command_hits,2024-02-16 12:30:38.725853+00,2024-02-16 12:30:38.725853+00,100000,t,max_command_count,5
+92af58e8-b1b3-4bd0-ac18-cfad62414c76,soft_threshold,2024-03-11 08:49:50.073771+00,2024-03-11 08:49:50.073771+00,50,t,soft_usage_threshold,
+82bec4de-065b-4dfb-aa61-9ad4ccefa3cc,hard_threshold,2024-03-11 08:49:50.073771+00,2024-03-11 08:49:50.073771+00,100,t,hard_usage_threshold,
+99ef1054-d1e7-4b08-9fbf-db2d9203f21a,collaboration_access,2024-04-03 11:14:52.524797+00,2024-04-03 11:14:52.524797+00,,t,enable_collaboration,
+33b45a25-662e-4610-83fc-09a0f95b037f,project_api_access,2024-04-22 07:27:53.373492+00,2024-04-22 07:27:53.373492+00,,t,project_api_access_enabled,
+68493ef2-f937-439d-b236-593fd2e2a9b4,observability_retention_access,2024-04-18 10:19:30.419719+00,2024-04-25 17:11:52.360062+00,900,t,observability_retention_15_minutes,
+6ffc1216-2f8f-4d4a-b2a9-14a112fd99a0,observability_retention_access,2024-04-18 10:19:30.419719+00,2024-04-25 17:11:52.360062+00,2592000,t,observability_retention_1_month,
+9c0bd545-1a9f-41db-af22-0fafa128c3cb,schema_diff_api_access,2024-05-07 05:03:49.666391+00,2024-05-07 05:03:49.666391+00,,t,schema_diff_api_access_enabled,
+5fa6eac2-f77e-47c3-bbee-2611964cce38,active_model_hits,2024-05-07 05:03:49.666391+00,2024-05-07 05:03:49.666391+00,100000,t,max_model_count_advanced,30
+4b2ab3dd-1bb0-4821-b64d-eea32ce4e2c6,active_command_hits,2024-05-07 05:03:49.666391+00,2024-05-07 05:03:49.666391+00,100000,t,max_command_count_advanced,30
+a1a4c6b7-5410-47ee-b0ce-efb2be05b7c1,trial_days,2024-06-25 14:11:53.120683+00,2024-07-08 18:32:12.751425+00,30,t,trial_days_enabled,
+0d3810a0-e915-42b0-80a3-3d189c647c9a,federation_access,2024-07-17 16:20:11.175929+00,2024-07-17 16:20:11.175929+00,,t,federation_access_enabled,
+7ac128f3-44b3-4e88-ab21-08cdf1a272ce,model_and_field_analytics_access,2024-07-23 11:07:09.99048+00,2024-07-23 11:07:09.99048+00,2592000,t,model_and_field_analytics_1_month,
+96934a86-8297-461e-9476-d1471b589f43,build_limit,2023-07-03 00:56:52.481436+00,2024-07-30 07:45:08.16759+00,500,t,max_500_builds,
+442c0228-8954-4557-a7ff-5a6ba45f4913,active_model_hits,2024-06-25 14:11:53.120683+00,2024-07-30 10:26:50.197519+00,1000,t,max_model_count_trial,0
+5590376c-f390-4d3a-a116-6017f0a4b6e2,active_command_hits,2024-06-25 14:11:53.120683+00,2024-07-30 10:26:50.197519+00,1000,t,max_command_count_trial,0
