@@ -1,5 +1,5 @@
 User goal	Domain	Data requirements	Agentic complexity level	Agentic complexity notes	Use-case category
-Get the projects, invoices, project usage for the user wile@acme.corp 	Customer Support	1. Information for User and all its relationships, 2. Projects for the user, 3. Invoices for the user, 4. Usage for the Projects for the user	Medium	Following connections	Multi-step retrieval
+Get the projects, invoices, project usage for the user tina.jackson@gray-smith.com	Customer Support	1. Information for User and all its relationships, 2. Projects for the user, 3. Invoices for the user, 4. Usage for the Projects for the user	Medium	Following connections	Multi-step retrieval
 How many support tickets were created in the last X days and how many of those are still open	Customer Support	1. Tickets of last X days with their status (closed/open)	Low		Data aggregation
 Are there any customers on paid plan who have created support tickets in the last X days	Customer Support	1. Tickets of last X days with the email of the submitter, 2. Get Users for those emails 3. Get Projects with Plans for those users	Medium	Following connections	Multi-step data retrieval
 Get top N customers with most requests	Customer Support	1. ProjectIDs from Requests with requests sorted	Medium	Smart search strategy	Data aggregation
@@ -7,23 +7,23 @@ Which free plan users have high usage	Customer Support	1. Projects on "free" Pla
 What’s the median resolution time of our support tickets in the last X days	Customer Support	1. Tickets of last X days with creation time. 2. Last comment of each ticket with creation time	High	Following connections, Compute, Smart search strategy	Data aggregation
 Which customers have created the most number of tickets	Customer Support	1. All Tickets with their email/id	Medium	Smart search strategy	Data aggregation
 How many support tickets are related to downtime issues?	Customer Support	1. All Tickets 	Medium	Compute	Bulk classification
-Get all downtime issues since Aug 2023 and summarize	Customer Support	1. Tickets since Aug 2023	Medium	Compute	Bulk classification
+Get all downtime issues since Aug 2023 and summarize key reason for downtime	Customer Support	1. Tickets since Aug 2023	Medium	Compute	Bulk classification
 Summarize the top complaints by users from support tickets in the last X days? 	Customer Support	1. Tickets of last X days with Ticket Comments	Medium	Compute	Bulk insights
 Categorize all tickets without type as one of operational, feature request, bug report, how-to or others.	Customer Support	1. Tickets with type=null	High	Smart search strategy, Compute	Bulk classification
 Which users are at risk of churn, look at usage, support tickets, etc?	Customer Support	1. Tickets from N days ago 2. Projects where Usage is low or zero 3. Projects where Errors are high	High	Following connections, Compute	Multi-step retrieval, bulk classification
-Get me summary of project usage for customers who have downgraded plans in the last 30 days	Customer Support	1. Projects with Plan Changes for last 30 days. 2. Get Usage for those projects for last 30 days	High	Following connections, Compute	Bulk insights
+Get me summary of project usage for customers who have downgraded plans in the last 30 days	Customer Support	1. Projects with Plan Changes for last 30 days.	Medium	Smart search strategy, Compute	Multi-step retrieval
 Which entitlements on paid plans are enabled for the least number of projects?	Customer Support	1. Entitlements for paid plans from Project Entitlement Catalog. 2. Entitlement for each Project from Project Entitlement Access	High	Compute, Following connections	Bulk insights
-Can you figure out what all plans is “no_rate_limit” entitlement a part of?	Customer Support	1. EntitlementID from Project Entitlement catalog 2. PlanID for EntitlementID in Plan Entitlement Access	Medium	Following connections	Bulk insights
-How have entitlements changed for plans over time	Customer Support	1. All Entitlements from Project Entitlements Catalog. 2. All Entitlements from Plan Entitlement Access	Medium	Compute	Data visualization
+Can you figure out what all plans is “enable_collaboration” entitlement a part of?	Customer Support	1. EntitlementID from Project Entitlement catalog 2. PlanID for EntitlementID in Plan Entitlement Access	Medium	Following connections	Bulk insights
+Give summary of what entitlements got added and what got removed for all the plans	Customer Support	1. All Entitlements from Project Entitlements Catalog. 2. All Entitlements from Plan Entitlement Access	Medium	Compute	Data visualization
 Are there any support tickets that have not been responded to in the last X days	Customer Support	1. Tickets and Ticket Comments of last X days	Medium	Smart search strategy	Bulk classification
 Give me a summary of project creations in last X days	Customer Support	1. Projects created in the last X days	Low		Data visualization
-When did wile@acme.corp signup	Customer Support	1. User	Low		
-How many projects did wile@acme.corp create	Customer Support	1. UserID from User 2. Projects with UserID	Medium	Following connections	Data aggregation
-Has wile@acme.corp switched the type of plan for his project ?	Customer Support	1. Get UserID from User 2. Get Projects with UserID 3. Get Project Plan Changes for ProjectID	Medium	Following connections	Multi-step retrieval
-Is wile@acme.corp on a paid plan?	Customer Support	1. UserID from User 2. Get Projects with UserID 3. Get Project Plan Changes for ProjectID	Medium	Following connections	Multi-step retrieval
+When did tina.jackson@gray-smith.com signup	Customer Support	1. User	Low		
+How many projects did tina.jackson@gray-smith.com create	Customer Support	1. UserID from User 2. Projects with UserID	Medium	Following connections	Data aggregation
+Has tina.jackson@gray-smith.com switched the type of plan for his project ?	Customer Support	1. Get UserID from User 2. Get Projects with UserID 3. Get Project Plan Changes for ProjectID	Medium	Following connections	Multi-step retrieval
+Is tina.jackson@gray-smith.com on a paid plan?	Customer Support	1. UserID from User 2. Get Projects with UserID 3. Get Project Plan Changes for ProjectID	Medium	Following connections	Multi-step retrieval
 Which users have generated the most revenue? Look at invoices to compute revenue.	Customer Support	1. Invoices and InvoiceItems grouped by CustomerID 2. User with CustomerID	High	Smart search strategy, Following connections	Data aggregation
 For all the base plan projects, get me their invoice amounts.	Customer Support	1. ProjectIDs from Project Plan Changelogs where latest plan  = "base". 2. Invoices for those projects	High	Smart search strategy, Following connections	Multi-step retrieval
-Get me all invoices data for wile@acme.corp	Customer Support	1. CustomerID from User 2.  Invoices and Invoice Items for CustomerID	Medium	Following connections	Multi-step retrieval
+Get me all invoices data for tina.jackson@gray-smith.com	Customer Support	1. CustomerID from User 2.  Invoices and Invoice Items for CustomerID	Medium	Following connections	Multi-step retrieval
 Help me prioritize support ticket #1234 amongst other open tickets based on user's plan, revenue and usage	Customer Support	1. Tickets with status=open 2. Project from project_name or submitter email,3. Plan from Project 4. Invoices from project 5. Usage from Project	High	Following connections, Smart search strategy	Multi-step retrieval, Bulk classification
 Are there any support tickets similar to #1234 	Customer Support	1. All Tickets with Ticket Comments	Medium	Smart search strategy	Bulk classification
 How many tickets since monday? 	Customer Support	1. Tickets since monday	Low		Data aggregation
@@ -33,14 +33,14 @@ Give summary of all tickets where customer responded today	Customer Support	1. T
 Get all tickets related to “mutations in mongodb” and summarize	Customer Support	1. All Tickets	Medium	Smart search strategy	Bulk insights
 Is there any support engineer who has a lot of open support tickets assigned to them?	Customer Support	1. Tickets with status=open	Medium	Smart search strategy/Compute	Data aggregation
 Help me assign a support engineer to ticket #1234 based on who has least open tickets assigned to them	Customer Support	1. Tickets with status=open	Medium	Smart search strategy/Compute	Data aggregation
-Give me a summary of overall support satisfaction for Acme.corp	Customer Support	1. Emails/IDs for submitters from Acme.corp 2. Get Tickets with Ticket Comments by those users 	High	Smart search strategy, Following connections	Bulk insights
+Give me a summary of overall support satisfaction for gray-smith.com	Customer Support	1. Emails/IDs for submitters from Acme.corp 2. Get Tickets with Ticket Comments by those users 	High	Smart search strategy, Following connections	Bulk insights
 How many open tickets do I have, get me the last comment and summary from each of those	Customer Support	1. Tickets with Ticket Comments where status=open and given AssigneeID	Medium	Smart search strategy	Bulk insights
 Get me all project details and usage stats for support ticket #1234	Customer Support	1. ProjectName/Email from Ticket  2. Project and Usage 	Medium	Following connections	Multi-step retrieval
 What's the average time in responding to a support ticket?	Customer Support	1. All Tickets with Ticket comments	High	Smart search strategy, Compute	Data aggregation
 Suggest an assignee for ticket #1234 based on who has solved similar cases in the past	Customer Support	1. All Tickets with Ticket comments	High	Smart search strategy, Compute	Bulk classification
 Get all support tickets which have not been responded to at all 	Customer Support	1. Tickets with Ticket Comments	Medium	Smart search strategy/Compute	Multi-step retrieval
 For all tickets open for more than a week, tell me what they are blocked on?	Customer Support	1.  Tickets with Ticket Comments with status=open, creation date > one week	Medium	Smart search strategy	Bulk insights
-Get the support ticket where will@acme.corp had commented about performance issues	Customer Support	1. Tickets with Ticket Comments	Medium	Smart search strategy	Point search
+Get the support ticket where tina.jackson@gray-smith.com had commented about performance issues with new update	Customer Support	1. Tickets with Ticket Comments	Medium	Smart search strategy	Point search
 Schedule a meeting called Monthly Review on the coming Wednesday at 4 PM and invite Wile E Coyote.	Email + Calendar	1. Create Event. 2. Create Event Attendee	Low		Action
 Move the Monthly Review meeting to 5 pm.	Email + Calendar	1. Update Event	Low		Point Search, Action
 Send a reminder about the Monthly Review meeting 2 hours before it starts.	Email + Calendar	1. Get Event 2. Create Reminder	Medium	Compute	Point Search, Action
@@ -72,12 +72,14 @@ How many days did I spend traveling for business in the last quarter?	Email + Ca
 Extract the invoice numbers, amounts, and due dates from the email titled "Vendor invoice" from last week	Email + Calendar	1. Get Email 2. Get Attachments	High	Following connections, Compute	Structured information extraction
 Which emails from the last week need follow-up ?	Email + Calendar	1. Get Emails in time range	Medium	Compute	Bulk classification
 Identify all emails where I committed to tasks and summarize any deadlines.	Email + Calendar	1. Get Emails	Medium	Compute	Bulk classification, Bulk insights
-List all emails where I was cc’d in legal conversations in the past 6 months.	Email + Calendar	1. Get Emails in time range	High	Smart search strategy, compute	Bulk classification
-Find me the email where I spoke to Wile Coyote about pricing strategy	Email + Calendar	1. Get Emails	High	Smart search strategy, compute	Point search
+List all emails where I was cc’d in legal conversations in the past 6 months.	Email + Calendar	1. Get Emails in time range	High	Smart search strategy, Compute	Bulk classification
+Find me the email where I spoke to Wile Coyote about pricing strategy	Email + Calendar	1. Get Emails	High	Smart search strategy, Compute	Point search
 Get amounts and categorize all receipts from the last month into 'Meals,' 'Transport,' and 'Lodging' for expense filing.	Email + Calendar	1. Get Emails in time range	Medium	Compute	Bulk classification, structured information extraction
 Get me the latest status on Acme opportunity	Sales		Low		Structured search
-Summarize all communications from Acme so far with dates	Sales		Medium	Following connections	Bulk insights
-From the given call transcripts, extract fields like expected budget, expected launch date, key milestones, potential blockers	Sales		Medium	Compute	Structured information extraction
+Summarize any interesting lead or contact activities that I should look into	Sales		Hard	Smart search strategy, Compute	Multi-step retrieval, Bulk insights
+Go through the activities in Acme opp and summarize any action items or next steps 	Sales		Medium	Following connections	Bulk insights
+Extract any common identified pain points for my opps	Sales		Medium	Compute	Clustering
+Go through all call transcripts with Acme opp and extract any MEDDPICC details 	Sales		Medium	Compute	Structured information extraction
 Show all opportunities closing this month	Sales		Low		Structured search
 Are there any follow up tasks for me to be done today	Sales		Medium	Compute	Bulk insights
 What’s the average length of our sales cycle this quarter	Sales		Medium	Compute	Data aggregation
@@ -89,7 +91,7 @@ How many accounts with ACBD=true are assigned to Wile	Sales		Medium	Smart search
 How long did it take to close Acme 2024?	Sales		Medium	Compute	Data aggregation
 How many accounts does Wile own?	Sales		Low		Data aggregation
 How many leads were created this week?	Sales		Low		Data aggregation
-What is the breakdown of lead sources this week?	Sales		Medium	Compute	Data visualization
+What is the breakup of lead sources this week?	Sales		Medium	Compute	Data visualization
 Can you summarize lead sources for this week?	Sales		Medium	Compute	Bulk insights
 When was the last email from Acme opp	Sales		Medium	Smart search strategy	Structured search/Point search
 Are there any next steps for an opp which doesn't have a corresponding task created ?	Sales		Medium	Following connections	Bulk insights
