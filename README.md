@@ -81,6 +81,12 @@ Usually the classification is based on textual input rather than structured attr
 
 *Example question (Email):* Get all receipts from food orders this month
 
+### Clustering
+
+This use-case involves finding similar properties in bulk data. 
+This is different from bulk classification as the categories are not known beforehand.
+
+*Example question (HR):* Extract any common pain points over all opportunities
 
 ### Point search
 
