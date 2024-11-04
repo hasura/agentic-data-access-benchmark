@@ -34,7 +34,7 @@ These domains are Customer Support, Email+Calendar, Sales, HR, Engineering Manag
 
 ### Overall statistics
 
-In total we have ~130 questions, the high level breakdown of the question on different dimensions is visualized below.
+In total we have ~150 questions, the high level breakdown of the question on different dimensions is visualized below.
 
 <table>
   <tr>
