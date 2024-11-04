@@ -119,11 +119,12 @@ Show issues with the server and enhancements labels but not "long term" label.	E
 Prioritize open issues based on comments and reactions.	Engineering Management		Medium	Smart search strategy	Bulk insights
 Tell me which open issues has no developer responded to? Look for developers from the Acme org	Engineering Management		High	Smart search strategy, Compute	Structured search
 Categorize open issues without any labels by understanding the issue. Get existing labels from repo	Engineering Management		High	Smart search strategy, Compute	Bulk classification
+Who are the top contributors? Look at PRs merged	Engineering Management		Medium	Smart search strategy	Data aggregation
 Who is reviewing the most number of PRs?	Engineering Management		Medium	Smart search strategy	Data aggregation
-Give me a summary of all contributions by wile@acme.corp in `app` repo	Engineering Management		Medium	Smart search strategy	Bulk insights
+Give me a summary of all contributions by wile@acme.corp in `app` repo. Look at commits contributed	Engineering Management		Medium	Smart search strategy	Bulk insights
 How much time did it take to review PR #1234?	Engineering Management		Medium	Compute	Data aggregation
-Suggest a reviewer for PR 4567 by seeing who has contributed the most to the files that have changed and previous commiters.	Engineering Management		High	Following connections, Compute	Multi-step retrieval
-Summarize the themes in the issues and discussions created this month	Engineering Management		Medium		Bulk insights
+Suggest a reviewer for PR 4567 by seeing who has contributed the most to the files that have changed in the PRs and previous commiters.	Engineering Management		High	Following connections, Compute	Multi-step retrieval
+Summarize the themes in the issues and discussions created this month	Engineering Management		Medium	Compute	Clustering
 How often are tests failing on PRs? Share some stats	Engineering Management		Medium	Smart search strategy	Data visualization, Data aggregation
 Find issues which can potentially be closed by the fix in PR #1234	Engineering Management		High	Smart search strategy, Compute	Bulk classification
 Create release notes from commit hash `abcd` to latest commit in main	Engineering Management		Medium	Smart search strategy	Multi-step retrieval
@@ -132,3 +133,11 @@ Are there any issues related to performance since the last release 	Engineering 
 Are there any support tickets related to issue #1234	Engineering Management		Medium	Smart search strategy	Multi-step retrieval, Bulk classification
 Get all issues created by paid plan users	Engineering Management		High	Following connections, Smart search strategy	Multi-step retrieval
 Are there any support tickets of type `feature-request` which don't have a Github ticket	Engineering Management		High	Smart search strategy, Compute	Multi-step retrieval, Bulk classification
+Which PRs have been open for more than 30 days	Engineering Management		Medium	Smart search strategy	Structured search
+What's the DORA metrics for app repo	Engineering Management		High	Following connections, Compute	Multi-step retrieval
+How many PRs have closed this month 	Engineering Management		Medium	Compute	Data aggregation
+What's the average number of revisions on a PR before it is approved	Engineering Management		High	Following connections, Compute	Data aggregation
+Any contributor communicating negatively on issues and PR comments in last 30 days?	Engineering Management		High	Smart search strategy, Compute	Multi-step retrieval, Bulk classification
+Who are new contributors in this repo with decent contribution? Look at PRs merged and lines of code changed	Engineering Management		Medium	Smart search strategy	Multi-step retrieval
+Are there issues in the repo which are related to adding appropriate documentation	Engineering Management		Medium	Compute	Bulk classification
+Can you give a count of bug fixes over last month	Engineering Management		Medium	Compute	Bulk classification, Data aggregation
