@@ -22,8 +22,8 @@ Preview:
 | User goal | Domain | Agentic complexity level | Agentic complexity notes | Use-case category |
 |--------|---------|---------------------|------------------|------------------|
 | Show me unread emails from the past week which are important or need follow-up. | Email + Calendar | Medium | LLM compute | Bulk classification
-| Get all receipts from food orders this month and tell me the net amount spent | Email + Calendar | High | LLM compute | Bulk classification, Structured information extraction
-| How many customers on paid plans have created support tickets in the last 7 days | Customer Support | High | Numeric Compute | Multi-step data retrieval, Data aggregation
+| Get all receipts from food orders this month and tell me the net amount spent | Email + Calendar | High | LLM compute, Numeric compute | Bulk classification, Structured information extraction
+| How many customers on paid plans have created support tickets in the last 7 days | Customer Support | High | Smart search strategy, Numeric Compute | Multi-step data retrieval, Data aggregation
 | Which users are at risk of churn, look at project usage, support tickets, recent plan downgrades, etc? | Customer Support | Medium | Smart search strategy | Multi-step data retrieval, Bulk insights
 | Go through all call transcripts with Acme opp and extract any MEDDPICC details | Sales | Medium | LLM compute | Structured information extraction
 | Give a count of all bug fix related PRs that have been merged in the last month | Engineering Management | High | LLM compute, Numeric compute | Bulk classification, Data aggregation
