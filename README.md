@@ -19,15 +19,14 @@ The question set is hosted here: https://huggingface.co/datasets/hasura/agentic-
 
 Preview:
 
-| User goal | Domain | Data requirements | Agentic complexity level | Agentic complexity notes |
-|--------|---------|-------------------|---------------------|------------------|
-| Show me unread emails from the past week which are important or need follow-up. | Email + Calendar | 1. Get Emails in time range 2. Get Email Metadata | High | Following connections, Compute |
-| Get all receipts from food orders this week | Email + Calendar | 1. Get Emails in time range 2. Get attachments | High | Following connections, Compute |
-| Summarize my upcoming travel itinerary with flight numbers, hotels, car rentals, etc | Email + Calendar | 1. Get Emails | High | Smart search strategy, Compute |
-| Are there any customers on paid plan who have created support tickets in the last 7 days | Customer Support | 1. Get Tickets of last 7 days with the `email` of the submitter<br>2. Get Users for those emails<br>3. Get Projects with Plans for those users | Medium | Following connections |
-| Are there any support tickets that have not been responded to in the last 30 days | Customer Support | 1. Get Tickets and Ticket Comments of last 30 days | Medium | Smart search strategy |
-| Which users are at risk of churn, look at project usage, support tickets, etc? | Customer Support | 1. Get Tickets from ~90 days ago<br>2. Get Projects where Usage is low or zero<br>3. Get Projects where Errors are high | High | Following connections, Compute |
-| Help me prioritize support ticket #1234 amongst other open tickets based on user's plan, revenue and usage | Customer Support | 1. Get all Tickets with `status=open`<br>2. Get Project from project_name or submitter email<br>3. Get Plan from Project<br>4. Get Invoices from project<br>5. Get Usage from Project | High | Smart search strategy, Following connections |
+| User goal | Domain | Agentic complexity level | Agentic complexity notes | Use-case category |
+|--------|---------|---------------------|------------------|------------------|
+| Show me unread emails from the past week which are important or need follow-up. | Email + Calendar | Medium | LLM compute | Bulk classification
+| Get all receipts from food orders this month and tell me the net amount spent | Email + Calendar | High | LLM compute | Bulk classification, Structured information extraction
+| How many customers on paid plans have created support tickets in the last 7 days | Customer Support | High | Numeric Compute | Multi-step data retrieval, Data aggregation
+| Which users are at risk of churn, look at project usage, support tickets, recent plan downgrades, etc? | Customer Support | Medium | Smart search strategy | Multi-step data retrieval, Bulk insights
+| Go through all call transcripts with Acme opp and extract any MEDDPICC details | Sales | Medium | LLM compute | Structured information extraction
+| Give a count of all bug fix related PRs that have been merged in the last month | Engineering Management | High | LLM compute, Numeric compute | Bulk classification, Data aggregation
 
 We use a select set of common domains as a guiding "north star" to illustrate what an AI assistant/agent could be capable of achieving.
 These domains are Customer Support, Email+Calendar, Sales, HR, Engineering Management and described in brief [here](./domains/domain-descriptions.md).
