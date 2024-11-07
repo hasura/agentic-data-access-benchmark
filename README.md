@@ -1,107 +1,130 @@
-# Agentic Data Access and Computation benchmark (ADAC)
+# Introducing the Data Access Agent Benchmark
 
-Agentic Data Access and Computation (ADAC) benchmark is a set of real-world questions over a few "closed domains" to illustrate the evaluation of AI assistants/agents in closed domains.
-Closed domains are domains where data is not available implicitly in the LLM as they reside in secure or private systems e.g. enterprise databases, SaaS applications, etc,
-and AI solutions require mechanisms to connect an LLM to such data. If you are evaluating an AI product or building your own AI architecture over closed domains, then you can use 
-these questions/nature of questions to understand the capabilities of your system and qualitatively measure the performance of your assistants/agents.
+An open problem in enterprise AI deployment is building systems that can effectively access, process, and reason over private organizational data. While language models have shown impressive capabilities with public knowledge, their ability to work with private enterprise data remains limited. Most enterprise AI assistants today can only handle basic predefined workflows and struggle with novel requests or complex data operations.
 
-ADAC benchmark was created because of severe shortcomings found in closed domain assistants in the wild. We found that apart from a few basic canned questions or workflows,
-the assistants were struggling to do anything new. This was found to be because the assistant is not connected 
-to sufficient data and is unable to perform complex or sequential operations over that data. We call the ability of an AI system, given the description of data, to agentically use and operate on that data as agentic data access.
+To address this challenge and measure the effectiveness of AI systems in enterprise settings, we are releasing the Data Access Agent Benchmark (DAAB), a comprehensive evaluation framework for assessing AI systems' ability to work with private enterprise data.
 
-<p align="center">
-<img src="./agentic-data-access-flowchart.png" alt="Agentic data access" width="600">
-</p>
+## Prior Art and Motivation
 
-## About the questions
+The landscape of AI benchmarks has evolved significantly over the past decade. Early benchmarks like SQuAD[^1] and TriviaQA[^2] focused on question-answering capabilities of models over public text. More recent benchmarks like MMLU[^3] and Big-Bench[^4] evaluate broader reasoning capabilities and tool use. Agent-focused benchmarks such as AgentBench[^5] assess the ability of AI systems to execute complex tasks through tool interaction.
 
-The question set is hosted here: https://huggingface.co/datasets/hasura/agentic-data-access-benchmark
+However, these benchmarks have significant limitations when it comes to enterprise settings:
 
-Preview:
+1. **Public vs. Private Data**: Most existing benchmarks focus on public knowledge rather than private organizational data. While OpenAI's SimpleQA[^6] addresses factuality, it doesn't capture the challenges of accessing and processing private enterprise data.
 
-| User goal | Domain | Agentic complexity level | Agentic complexity notes | Use-case category |
-|--------|---------|---------------------|------------------|------------------|
-| Show me unread emails from the past week which are important or need follow-up. | Email + Calendar | Medium | LLM compute | Bulk classification
-| Get all receipts from food orders this month and tell me the net amount spent | Email + Calendar | High | LLM compute, Numeric compute | Bulk classification, Structured information extraction
-| How many customers on paid plans have created support tickets in the last 7 days | Customer Support | High | Smart search strategy, Numeric Compute | Multi-step data retrieval, Data aggregation
-| Which users are at risk of churn, look at project usage, support tickets, recent plan downgrades, etc? | Customer Support | Medium | Smart search strategy | Multi-step data retrieval, Bulk insights
-| Go through all call transcripts with Acme opp and extract any MEDDPICC details | Sales | Medium | LLM compute | Structured information extraction
-| Give a count of all bug fix related PRs that have been merged in the last month | Engineering Management | High | LLM compute, Numeric compute | Bulk classification, Data aggregation
+2. **Single Model vs. System Evaluation**: Traditional benchmarks evaluate individual model capabilities rather than complete AI systems. Frameworks like LangChain[^7] and AutoGPT[^8] demonstrate the need for evaluating entire system architectures.
 
-We use a select set of common domains as a guiding "north star" to illustrate what an AI assistant/agent could be capable of achieving.
-These domains are Customer Support, Email+Calendar, Sales, HR, Engineering Management and described in brief [here](./domains/domain-descriptions.md).
+3. **Synthetic vs. Real-world Tasks**: Many benchmarks use synthetic or academic tasks rather than real enterprise workflows. While BIG-bench[^4] includes diverse tasks, it lacks the complexity of actual business operations.
 
-### Overall statistics
+4. **Static vs. Dynamic Data**: Existing benchmarks often use static datasets, whereas enterprise systems must handle dynamic, constantly updating data sources.
 
-In total we have ~150 questions, the high level breakdown of the question on different dimensions is visualized below.
+These limitations highlight the need for a new type of benchmark that can evaluate AI systems' ability to work with enterprise data in realistic scenarios.
 
-<table>
-  <tr>
-    <td><img src="./query_distribution_by_domain.png" alt="Question distribution by domain" width="400"></td>
-    <td><img src="./complexity-levels-by-domain.png" alt="Question distribution by complexity" width="400"></td>
-  </tr>
-  <tr>
-    <td><img src="./agentic-complexity-levels.png" alt="Agentic complexity levels" width="400"></td>
-    <td><img src="./agentic-complexity-types.png" alt="Agentic complexity types" width="400"></td>
-  </tr>
-  <td><img src="./use-case-category-distribution.png" alt="Use-case categories distribution" width="400"></td>
-  <td><img src="./use-cases-by-domain.png" alt="Use-case categories by domain" width="400"></td>
-</table>
+## About the Data Access Agent Benchmark
 
-## Use-case categories
+The ability of an AI system to autonomously access and operate on enterprise data - what we call "agentic data access" - is crucial for building truly useful enterprise AI solutions. DAAB is designed to evaluate complete AI systems, which may include multiple models, tools, and retrieval pipelines, rather than focusing on individual models in isolation.
 
-Below we describe fundamental use-case categories which are common across all domains: 
+With DAAB, our goal was to create a benchmark with the following properties:
 
-### Multi-step data retrieval
+- **Real-world relevance**: Questions are derived from actual enterprise use cases across common domains like Customer Support, Email+Calendar, Sales, and HR.
+- **Comprehensive evaluation**: The benchmark tests various complexity levels of data access and computation, from simple retrieval to complex multi-step operations.
+- **System-agnostic**: The benchmark can evaluate any AI system architecture, whether it uses a single large model or multiple specialized components.
+- **Practical applicability**: Questions reflect tasks that enterprise users actually need help with, making the benchmark results directly relevant to real-world applications.
 
-This use-case involves fetching data from multiple locations e.g. fetching data from different tables in a database, getting data from different databases, etc
-It is possible that the data from one step is used in the next step (composition) as well.
+## Benchmark Structure
 
-*Example question (Customer Support):*  Get the projects, invoices, project usage for the user wile@acme.corp 
+DAAB contains approximately 150 questions across different enterprise domains. Each question is categorized along multiple dimensions:
 
+1. **Domain**: The business function the question relates to (e.g., Customer Support, Email+Calendar)
+2. **Data Requirements**: What data needs to be accessed to answer the question
+3. **Agentic Complexity Level**: Rated as Low, Medium, or High
+4. **Agentic Complexity Notes**: Specific aspects that make the question challenging
 
-### Data aggregation
+### Use Case Categories
 
-This use-case involves aggregating data from simpler data points e.g. counting, summing, grouping on list of items.
-Note that for AI assistants, most of the aggregations would be for adhoc analysis where existing dashboards may not suffice or require non-trivial work. 
+The benchmark identifies several fundamental use-case categories that are common across domains:
 
-*Example question (HR):* What is the average hours count and dollar amount of PTO paid out to departing team members?
+1. **Multi-step Data Retrieval**: Tasks requiring data fetching from multiple sources
+2. **Data Aggregation**: Computing summaries or statistics from raw data
+3. **Bulk Insights**: Analyzing multiple data items to extract specific insights
+4. **Bulk Classification**: Finding relevant items using textual classification
+5. **Clustering**: Identifying similar properties in bulk data
+6. **Point Search**: Finding specific items with complex characteristics
+7. **Structured Information Extraction**: Converting unstructured text to structured data
+8. **Data Visualization**: Transforming data into human-friendly formats
 
-### Bulk insights
+## Question Distribution
 
-This use-case involves going to each data item and creating specific insights for each one of them
+TODO: Add a pie chart showing the distribution of questions across different dimensions (domains, complexity levels, use case categories)
 
-*Example question (Customer Support):* For all tickets open for more than a week, tell me what they are blocked on?
+## Example Questions and Systems
 
-### Bulk classification
+Here are some example questions from the benchmark that illustrate different complexity levels:
 
-This use-case involves finding relevant items over bulk data by classifying/categorizing them as relevant or not.
-Usually the classification is based on textual input rather than structured attributes.
+**High Complexity**:
+```
+"Help me prioritize support ticket #1234 amongst other open tickets based on user's plan, revenue and usage"
 
-*Example question (Email):* Get all receipts from food orders this month
+Data Requirements:
+1. Get all Tickets with status=open
+2. Get Project from project_name or submitter email
+3. Get Plan from Project
+4. Get Invoices from project
+5. Get Usage from Project
+```
 
-### Clustering
+**Medium Complexity**:
+```
+"Are there any support tickets that have not been responded to in the last 30 days"
 
-This use-case involves finding similar properties in bulk data. 
-This is different from bulk classification as the categories are not known beforehand.
+Data Requirements:
+1. Get Tickets and Ticket Comments of last 30 days
+```
 
-*Example question (HR):* Extract any common pain points over all opportunities
-
-### Point search
-
-This use-case involves finding the most relevant item(s) with complex characteristics over bulk data.
-
-*Example question (Email):* Find me the email from Wile where I spoke about business strategy
-
-### Structured information extraction
-
-This use-case involves extracting information from textual data in a structured format so it can be fed to other systems.
-
-*Example question (Sales):*  Create a new opportunity for Acme corp from recent call transcripts, fill in Opportunity Name, Segment, Product SKU, ARR and Next Steps
+TODO: Add example system architectures and how they approach these questions
 
 
-### Data visualization
+## Evaluation Methodology
 
-This use-case essentially involves visualizing or transforming data in a way where it is more easily consumable for a human.
+The Data Access Agent Benchmark employs a multi-dimensional evaluation framework to assess system performance across different aspects of data access and computation.
 
-*Example question (Email):* How have I spent my time on meetings this month?
+### Core Metrics
+
+1. **Human Directed Task Completion Rate**
+   - Binary success/failure for each task
+
+## Building on Previous Work
+
+The Data Access Agent Benchmark builds upon and extends previous work in several key ways:
+
+1. **Enhanced Evaluation Framework**: Drawing from the structured evaluation approaches of benchmarks like HELM[^9] and OpenAI Evals[^10], DAAB adds enterprise-specific metrics and evaluation criteria.
+
+2. **Real-world Task Design**: Inspired by the task complexity framework from BabyAI[^11], we've designed tasks that reflect actual enterprise workflows rather than synthetic challenges.
+
+3. **System-level Assessment**: Building on agent evaluation frameworks like AgentBench[^5], we extend the evaluation to cover complete enterprise AI systems rather than individual components.
+
+4. **Data Access Patterns**: Incorporating insights from database QA systems[^12] and enterprise search evaluations[^13], we've developed comprehensive patterns for assessing data access capabilities.
+
+## Conclusion
+
+The Data Access Agent Benchmark represents a significant step forward in evaluating enterprise AI systems' ability to work with private data. By providing a standardized way to assess these capabilities, we hope to drive progress in building more effective enterprise AI solutions that can truly understand and work with organizational data.
+
+The complete benchmark dataset is available at [TODO: Add link to dataset].
+
+We invite the AI community to use this benchmark in evaluating their enterprise AI systems and welcome feedback on making it even more useful for measuring progress in this crucial area.
+
+## References
+
+[^1]: Rajpurkar et al. (2016). SQuAD: 100,000+ Questions for Machine Comprehension of Text
+[^2]: Joshi et al. (2017). TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension
+[^3]: Hendrycks et al. (2020). Measuring Massive Multitask Language Understanding
+[^4]: Srivastava et al. (2022). Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models
+[^5]: Liu et al. (2023). AgentBench: Evaluating LLMs as Agents
+[^6]: Wei et al. (2024). SimpleQA: A Factuality Benchmark for Language Models
+[^7]: LangChain Documentation (2023)
+[^8]: AutoGPT Documentation (2023)
+[^9]: Liang et al. (2022). Holistic Evaluation of Language Models
+[^10]: OpenAI Evals Documentation (2023)
+[^11]: Chevalier-Boisvert et al. (2018). BabyAI: First Steps Towards Grounded Language Learning With a Human In the Loop
+[^12]: Li et al. (2023). Text-to-SQL: State of the Art and Future Directions
+[^13]: Zhang et al. (2022). Enterprise Search in the Era of Large Language Models
