@@ -10,7 +10,7 @@ The landscape of AI benchmarks has evolved significantly over the past decade. E
 
 However, these benchmarks have significant limitations when it comes to enterprise settings:
 
-1. **Public vs. Private Data**: Most existing benchmarks focus on public knowledge rather than private organizational data. While OpenAI's SimpleQA[^6] addresses factuality, it doesn't capture the challenges of accessing and processing private enterprise data.
+1. **Public vs. Private Data**: Most existing benchmarks focus on public knowledge rather than private organizational data. While OpenAI's SimpleQA[^6] addresses factuality, it doesn't capture the challenges of accessing and processing private enterprise data. AKA open domain vs closed domain
 
 2. **Single Model vs. System Evaluation**: Traditional benchmarks evaluate individual model capabilities rather than complete AI systems. Frameworks like LangChain[^7] and AutoGPT[^8] demonstrate the need for evaluating entire system architectures.
 
@@ -28,11 +28,13 @@ Our benchmark builds upon several key technical areas in AI:
    - Early work by Lewis et al.[^14] introduced RAG as a way to ground language model outputs in retrieved documents
    - Chen et al.[^15] demonstrated RAG's effectiveness in enterprise settings
    - Current challenges include retrieval quality and context integration[^16]
+   - FRAMES: Fact, Fetch, and Reason: A Unified Evaluation of Retrieval-Augmented Generation[^23]
+   - MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries[^24]
 
-2. **Task-Oriented Dialogue Systems**
-   - Traditional frameworks like MultiWOZ[^17] established patterns for goal-oriented interactions
-   - Recent work by Hosseini-Asl et al.[^18] on multi-domain dialogue state tracking
-   - Enterprise applications by Ham et al.[^19] showing challenges in real-world deployments
+2. **Tool use in LLMs**
+   - Toolformer: Language Models Can Teach Themselves to Use Tools[^25]
+   - ToolQA: A Dataset for LLM Question Answering with External Tools[^26]
+   - API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs[^27]
 
 3. **Database Question Answering**
    - Text-to-SQL systems like Spider[^20] pioneered structured data access
@@ -41,7 +43,7 @@ Our benchmark builds upon several key technical areas in AI:
 
 These foundations inform several aspects of our benchmark:
 - RAG techniques influence our evaluation of data retrieval efficiency
-- Task-oriented dialogue patterns shape our multi-step task design
+- Tool use influences planning ability
 - Database QA challenges guide our data access complexity metrics
 
 ## About the Data Access Agent Benchmark
@@ -116,6 +118,13 @@ The Data Access Agent Benchmark employs a multi-dimensional evaluation framework
 
 1. **Human Directed Task Completion Rate**
    - Binary success/failure for each task
+  
+2. **Task-Oriented Dialogue Systems**
+   - Traditional frameworks like MultiWOZ[^17] established patterns for goal-oriented interactions
+   - Recent work by Hosseini-Asl et al.[^18] on multi-domain dialogue state tracking
+   - Enterprise applications by Ham et al.[^19] showing challenges in real-world deployments
+   - ACUTE-EVAL: Improved dialogue evaluation with optimized questions and
+multi-turn comparisons[^28]
 
 ## Building on Previous Work
 
@@ -161,5 +170,12 @@ We invite the AI community to use this benchmark in evaluating their enterprise 
 [^20]: Yu et al. (2018). Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task
 [^21]: Wang et al. (2023). Semantic Parsing in Enterprise: Current Status and Future Directions
 [^22]: Li et al. (2023). Complex Query Construction for Modern Database Question Answering Systems
+[^23]: FRAMES: Fact, Fetch, and Reason: A Unified Evaluation of Retrieval-Augmented Generation
+[^24]: MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries
+[^25]: Toolformer: Language Models Can Teach Themselves to Use Tools
+[^26]: ToolQA: A Dataset for LLM Question Answering with External Tools
+[^27]: API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs
+[^28]: ACUTE-EVAL: Improved Dialogue Evaluation with Optimized Questions and Multi-turn Comparisons
+
 
 
