@@ -37,35 +37,29 @@ These limitations underscore the need for new benchmark frameworks specifically 
 
 ### Related Technical Approaches and their Limitations
 
-Augmented language models[^29] are models which depend on external system augmentation to produce grounded results.
-
-There has been proliferation of techniques to connect external systems to LLMs so it can provide grounded answers on topics that LLMs have not been trained on. Although fine-tuning on specific data may help enriching the parametric knowledge of LLMs which can result in better closed-domain question-answering, the more commonly used techniques are based on augmenting LLMs with relevant external documents, tool-use and agentic  which uses pre-trained models and a combination of 
-
-Our benchmark builds upon several key technical areas in AI:
+We will briefly overview few common approaches to build systems on enterprise data and discuss their limitations.
 
 1. **Retrieval Augmented Generation (RAG)**
-   - Early work by Lewis et al.[^14] introduced RAG as a way to ground language model outputs in retrieved documents
-   - Chen et al.[^15] demonstrated RAG's effectiveness in enterprise settings
-   - Current challenges include retrieval quality and context integration[^16]
-   - FRAMES: Fact, Fetch, and Reason: A Unified Evaluation of Retrieval-Augmented Generation[^23]
-   - MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries[^24]
+   - Retrieval-augmented methods [https://arxiv.org/pdf/2402.19473] have been used to search for relevant documents and used as additional input context for generating answers from external systems.
+   - Early work by ReaLM and Lewis et al.[^14] introduced RAG.
+   - Primarily uses text embeddings as a search mechanism
+   - Embeddings suffer from lack of temporality, attribute based filtering, and loss of user-context authorization 
+   - Not all data is text. Structured data in databases, etc
 
-3. **Database Question Answering**
-   - Text-to-SQL systems like Spider[^20] pioneered structured data access
-   - Recent advances in semantic parsing for database queries[^21]
+2. **Database Question Answering**
+   - Text-to-SQL systems can be used to retrieve data from SQL databases. Recent advances in semantic parsing for database queries[^21]
    - Challenges in complex joins and nested queries[^22]
+   - Enterprise Data is spread in multiple databases
+   - Not all data is structured.
+   - Need to perform tasks like summarize, classify, cluster, point search, etc for which SQL is not apt
   
-2. **Tool use in LLMs**
-   - Toolformer: Language Models Can Teach Themselves to Use Tools[^25]
-   - ToolQA: A Dataset for LLM Question Answering with External Tools[^26]
-   - API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs[^27]
+3. **Tool use in LLMs**
+   - Tool use can be used to agentically retrieve and perform tasks
+   - Most generic method
+   - All APIs don't exist
+   - APIs are not well documented
+   - Composing tools with large data inputs prone to hallucination
 
-
-
-These foundations inform several aspects of our benchmark:
-- RAG techniques influence our evaluation of data retrieval efficiency
-- Tool use influences planning ability
-- Database QA challenges guide our data access complexity metrics
 
 ## About the Data Access Agent Benchmark
 
@@ -99,6 +93,7 @@ The benchmark identifies several fundamental use-case categories that are common
 6. **Point Search**: Finding specific items with complex characteristics
 7. **Structured Information Extraction**: Converting unstructured text to structured data
 8. **Data Visualization**: Transforming data into human-friendly formats
+9. **Needle in a haystack**: Searching for all relevant data snippets from a query string
 
 ## Question Distribution
 
