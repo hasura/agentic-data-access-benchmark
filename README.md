@@ -23,15 +23,15 @@ While traditional benchmarks evaluate AI capabilities using knowledge embedded w
 
 Current benchmarks face several critical limitations when applied to enterprise settings:
 
-1. Data Privacy Context: Existing benchmarks predominantly focus on public knowledge. While they incorporate retrieval and tool use, they fail to capture the unique challenges of private organizational data. Enterprise environments typically involve sensitive, proprietary information
+1. **Data Privacy Context**: Existing benchmarks predominantly focus on public knowledge. While they incorporate retrieval and tool use, they fail to capture the unique challenges of private organizational data. Enterprise environments typically involve sensitive, proprietary information
 
-2. Data Source Complexity: Traditional benchmarks evaluate performance on single sources or databases. Enterprise data typically spans multiple systems and formats. Integration challenges are often overlooked in current evaluations
+2. **Data Source Complexity**: Traditional benchmarks evaluate performance on single sources or databases. Enterprise data typically spans multiple systems and formats. Integration challenges are often overlooked in current evaluations
 
-3. Task Authenticity: Most benchmarks rely on synthetic or academic tasks. Even advanced datasets like GAIA[^32] fail to capture typical enterprise queries. Real business questions often involve different complexity patterns
+3. **Task Authenticity**: Most benchmarks rely on synthetic or academic tasks. Even advanced datasets like GAIA[^32] fail to capture typical enterprise queries. Real business questions often involve different complexity patterns
 
-4. Data Dynamism: Existing benchmarks typically use static datasets. Enterprise systems must handle dynamic, continuously updating data sources. Real-time data processing requirements are rarely addressed
+4. **Data Dynamism**: Existing benchmarks typically use static datasets. Enterprise systems must handle dynamic, continuously updating data sources. Real-time data processing requirements are rarely addressed
 
-5. Full System Evaluation: While numerous benchmarks exist for evaluating individual components of AI systems, comprehensive end-to-end evaluation remains a challenge. Most benchmarks focus on isolated capabilities like retrieval or reasoning, rather than assessing how these components work together in production environments. This challenge is particularly acute in enterprise settings, where data sprawl, heterogenous data storage, custom organization is very common
+5. **Full System Evaluation**: Most benchmarks focus on isolated capabilities like retrieval or reasoning, rather than assessing how these components work together in production environments. This challenge is particularly acute in enterprise settings, where data sprawl, heterogenous data structures, custom data organization is very common.
 
 These limitations underscore the need for new benchmark frameworks specifically designed to evaluate AI systems' effectiveness in enterprise contexts, with particular attention to real-world data complexity, privacy requirements, and task complexity.
 
@@ -39,26 +39,11 @@ These limitations underscore the need for new benchmark frameworks specifically 
 
 We will briefly overview few common approaches to build systems on enterprise data and discuss their limitations.
 
-1. **Retrieval Augmented Generation (RAG)**
-   - Retrieval-augmented methods [^33] have been used to search for relevant documents and used as additional input context for generating answers from external systems.
-   - Early work by ReaLM and Lewis et al.[^14] introduced RAG.
-   - Primarily uses text embeddings as a search mechanism
-   - Embeddings suffer from lack of temporality, attribute based filtering, and loss of user-context authorization 
-   - Not all data is text. Structured data in databases, etc
+**RAG**: RAG[^10],[^11] enhances AI responses by incorporating searched documents as additional context, using text embeddings as its primary search mechanism. Although few use-cases like "needle in the haystack" work decently with RAG, it faces key limitations: embeddings lack temporal awareness and attribute filtering, can't maintain user authorization, and are limited to text data while missing structured database information.
 
-2. **Database Question Answering**
-   - Text-to-SQL systems can be used to retrieve data from SQL databases. Recent advances in semantic parsing for database queries[^21]
-   - Challenges in complex joins and nested queries[^22]
-   - Enterprise Data is spread in multiple databases
-   - Not all data is structured.
-   - Need to perform tasks like summarize, classify, cluster, point search, etc for which SQL is not apt
-  
-3. **Tool use in LLMs**
-   - Tool use can be used to agentically retrieve and perform tasks
-   - Most generic method
-   - All APIs don't exist
-   - APIs are not well documented
-   - Composing tools with large data inputs prone to hallucination
+**Text-to-SQL**: Database question-answering leverages text-to-SQL[^12] systems for data retrieval, but is limited in it's scope. The reality of  enterprise data is that it's usually spread across multiple databases and is stored in different forms. SQL's inherent limitations make it unsuitable for tasks like summarization and classification, especially when dealing with unstructured data.
+
+**Tool use**: Tool use[^25], [^30] in LLMs provides the most flexible approach for retrieving data and executing tasks, but faces practical challenges: missing APIs, poor documentation, and increased hallucination risk when handling large data inputs for the tool use. These limitations significantly impact the reliability of tool-based approaches in production environments.
 
 
 ## About the Data Access Agent Benchmark
