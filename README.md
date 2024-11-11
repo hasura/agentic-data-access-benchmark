@@ -6,11 +6,11 @@ To address this challenge and measure the effectiveness of AI systems in enterpr
 
 ## Prior Art and Motivation
 
-The landscape of AI benchmarks has evolved significantly over the past decade. Early benchmarks like SQuAD[^1] and TriviaQA[^2] focused on question-answering capabilities of models over public text. More recent benchmarks like MMLU[^3] and Big-Bench[^4] evaluate broader reasoning capabilities and tool use. Agent-focused benchmarks such as AgentBench[^5] assess the ability of AI systems to execute complex tasks through tool interaction.
+(LLM benchmarks)The landscape of AI benchmarks has evolved significantly over the past decade. Early benchmarks like SQuAD[^1], TriviaQA[^2], NaturalQuestions focused on question-answering capabilities of language models over public information. With the advent of Large Language Models, these benchmarks have already been reasonly surpassed. More recent benchmarks like MMLU[^3], Big-Bench Hard [^4] and SimpleQA evaluate broader reasoning and language understanding capabilities more appropriate for testing LLMs. 
 
-Augmented language models[^29] are models which depend on external system augmentation to produce grounded results.
+(LLM + External system benchmarks) The above benchmarks test the AI capability over data that is implicitly present in the parameters of the model. There are several benchmarks which evaluate AI capability over tasks which are external to the knowledge in the LLMs. Most of these fall into 2 categories: retrieval-augmented approaches and tool use. In retrieval-augmented approaches, the response processing first goes through a step of relevant retrieval of data which is then augmented to the input for greater groundedness. Existing open-domain benchmarks like TriviaQA and NaturalQuestions mentioned above have also benefitted from explicit retrieval-augmentation [Realm, RAG] using vector-search based methods on Wikipedia corpus. Other more advanced datasets include FRAMES, CRAG, etc. In contrast, tool use is a mechanism in which the LLM can request for tools that perform specific tasks on the fly [Toolformer], [ReAct],  - these tools can be calculator tools or web search tool and others. ToolQA, APIbench, etc are datasets which help evalualte the capability. Tool use in a sense is a superset where we also rely on the LLM to reason and plan for using the tool. We can also consider most other external system techniques like text-to-sql as a subset of tool use mechanism. 
 
-However, these benchmarks have significant limitations when it comes to enterprise settings:
+(benchmarks for enterprises?) However, these benchmarks have significant limitations when it comes to enterprise settings:
 
 1. **Public vs. Private Data**: Most existing benchmarks focus on public knowledge rather than private organizational data. While OpenAI's SimpleQA[^6] addresses factuality, it doesn't capture the challenges of accessing and processing private enterprise data. AKA open domain vs closed domain
 
@@ -23,6 +23,10 @@ However, these benchmarks have significant limitations when it comes to enterpri
 These limitations highlight the need for a new type of benchmark that can evaluate AI systems' ability to work with enterprise data in realistic scenarios.
 
 ### Related Technical Foundations
+
+Augmented language models[^29] are models which depend on external system augmentation to produce grounded results.
+
+There has been proliferation of techniques to connect external systems to LLMs so it can provide grounded answers on topics that LLMs have not been trained on. Although fine-tuning on specific data may help enriching the parametric knowledge of LLMs which can result in better closed-domain question-answering, the more commonly used techniques are based on augmenting LLMs with relevant external documents, tool-use and agentic  which uses pre-trained models and a combination of 
 
 Our benchmark builds upon several key technical areas in AI:
 
