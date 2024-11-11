@@ -8,6 +8,8 @@ To address this challenge and measure the effectiveness of AI systems in enterpr
 
 The landscape of AI benchmarks has evolved significantly over the past decade. Early benchmarks like SQuAD[^1] and TriviaQA[^2] focused on question-answering capabilities of models over public text. More recent benchmarks like MMLU[^3] and Big-Bench[^4] evaluate broader reasoning capabilities and tool use. Agent-focused benchmarks such as AgentBench[^5] assess the ability of AI systems to execute complex tasks through tool interaction.
 
+Augmented language models[^29] are models which depend on external system augmentation to produce grounded results.
+
 However, these benchmarks have significant limitations when it comes to enterprise settings:
 
 1. **Public vs. Private Data**: Most existing benchmarks focus on public knowledge rather than private organizational data. While OpenAI's SimpleQA[^6] addresses factuality, it doesn't capture the challenges of accessing and processing private enterprise data. AKA open domain vs closed domain
@@ -176,6 +178,7 @@ We invite the AI community to use this benchmark in evaluating their enterprise 
 [^26]: ToolQA: A Dataset for LLM Question Answering with External Tools
 [^27]: API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs
 [^28]: ACUTE-EVAL: Improved Dialogue Evaluation with Optimized Questions and Multi-turn Comparisons
+[^29]: Augmented Language Models: a Survey https://arxiv.org/pdf/2302.07842
 
 
 
