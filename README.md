@@ -77,7 +77,7 @@ The benchmark identifies several fundamental use-case categories that are common
 7. **Decision Making**: Involves analyzing different data and making informed choices as to next course of action
 8. **Clustering**: Identifying similar properties in bulk data
 9. **"Needle in a haystack" Search**: Searching for all relevant documentes relevant for a query string
-10. **Point Search**: Finding specific items which satisfy complex properties
+10. **Point Search**: Finding specific items which satisfy complex descriptions
 11. **Structured Information Extraction**: Extracting key-value pairs from unstructured text
 12. **Data Visualization**: Transforming data into human-friendly formats
 
