@@ -68,16 +68,16 @@ DAAB contains approximately 150 questions across different enterprise domains. E
 
 The benchmark identifies several fundamental use-case categories that are common across domains:
 
-1. **Attribute search**: Retrieving data from a database by filtering for attributes
+1. **Attribute Search**: Retrieving data from a database by filtering or ordering by attributes
 2. **Multi-step Data Retrieval**: Tasks requiring data fetching from multiple sources
-3. **Data Aggregation**: Computing statistics from raw data
-4. **General analysis/Summarization**: Retrieving relevant data and giving a general summary (statistical or textual)
+3. **Data Aggregation**: Computing statistics (count, sum, min, max, avg, etc) from raw data
+4. **General Analysis/Summarization**: Retrieving relevant data and giving a general summary (statistical or textual)
 5. **Bulk Insights**: Analyzing multiple data items to extract specific insights
 6. **Bulk Classification**: Finding relevant items using textual classification
-7. **Decision making**: Involves analyzing different data and making informed choices as to next course of action
+7. **Decision Making**: Involves analyzing different data and making informed choices as to next course of action
 8. **Clustering**: Identifying similar properties in bulk data
-9. **"Needle in a haystack" search**: Searching for all relevant documentes relevant for a query string
-10. **Point Search**: Finding specific items which satisty complex properties
+9. **"Needle in a haystack" Search**: Searching for all relevant documentes relevant for a query string
+10. **Point Search**: Finding specific items which satisfy complex properties
 11. **Structured Information Extraction**: Extracting key-value pairs from unstructured text
 12. **Data Visualization**: Transforming data into human-friendly formats
 
