@@ -71,7 +71,7 @@ The benchmark identifies several fundamental use-case categories that are common
 1. **Attribute Search**: Retrieving data from a database by filtering or ordering by attributes
 2. **Multi-step Data Retrieval**: Tasks requiring data fetching from multiple sources
 3. **Data Aggregation**: Computing statistics (count, sum, min, max, avg, etc) from raw data
-4. **General Analysis/Summarization**: Retrieving relevant data and giving a general summary (statistical or textual)
+4. **Summarization/General Analysis**: Retrieving relevant data and giving a general summary (statistical or textual)
 5. **Bulk Insights**: Analyzing multiple data items to extract specific insights
 6. **Bulk Classification**: Finding relevant items using textual classification
 7. **Decision Making**: Involves analyzing different data and making informed choices as to next course of action
