@@ -115,20 +115,11 @@ TODO: Add example system architectures and how they approach these questions
 
 ## Evaluation Methodology
 
-The Data Access Agent Benchmark employs a multi-dimensional evaluation framework to assess system performance across different aspects of data access and computation.
+The Data Access Agent Benchmark employs a goal-oriented evaluation metric[^42], recognizing that while many dataset questions could be approached in a zero-shot (or question-answer) setting, users typically interact with the agent through an assistant. This interaction often evolves into a dialogue where users provide helpful hints to guide task completion based on previous responses.
 
-### Core Metrics
+Most evaluation studies on dialogue systems follow the PARADISE[^43] framework. This framework evaluates user satisfaction through two key metrics: dialogue cost and task success. Dialogue cost measures interaction costs, such as the number of conversation turns, while task success assesses whether the system successfully achieves the user's goal. We can use a weighted combination of both metrics to come up with an overall score, although we believe that the task success alone may be reasonably considered as the main metric.
 
-1. **Human Directed Task Completion Rate**
-   - Binary success/failure for each task
-  
-2. **Task-Oriented Dialogue Systems**
-   - Traditional frameworks like MultiWOZ[^17] established patterns for goal-oriented interactions
-   - Recent work by Hosseini-Asl et al.[^18] on multi-domain dialogue state tracking
-   - Enterprise applications by Ham et al.[^19] showing challenges in real-world deployments
-   - ACUTE-EVAL: Improved dialogue evaluation with optimized questions and
-multi-turn comparisons[^28]
-
+Given the challenges of evaluating dialogue responses on enterprise settings[^19], we will mainly rely on human assessment of the dialogues to measure the metrics.
 
 ## Conclusion
 
@@ -165,8 +156,6 @@ We invite the AI community to use this benchmark in evaluating their enterprise 
 [^13]: Zhang et al. (2022). Enterprise Search in the Era of Large Language Models
 [^15]: Chen et al. (2022). Enterprise RAG: Improving Business Document Retrieval with Large Language Models
 [^16]: Shi et al. (2023). A Survey of Retrieval-Augmented Text Generation
-[^17]: Budzianowski et al. (2018). MultiWOZ - A Large-Scale Multi-Domain Wizard-of-Oz Dataset for Task-Oriented Dialogue Modelling
-[^18]: Hosseini-Asl et al. (2020). A Simple Language Model for Task-Oriented Dialogue
 [^19]: Ham et al. (2023). Challenges in Deploying Task-Oriented Dialogue Systems in Enterprise Settings
 [^20]: Yu et al. (2018). Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task
 [^21]: Wang et al. (2023). Semantic Parsing in Enterprise: Current Status and Future Directions
@@ -175,7 +164,6 @@ We invite the AI community to use this benchmark in evaluating their enterprise 
 [^25]: Toolformer: Language Models Can Teach Themselves to Use Tools
 [^26]: ToolQA: A Dataset for LLM Question Answering with External Tools
 [^27]: API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs
-[^28]: ACUTE-EVAL: Improved Dialogue Evaluation with Optimized Questions and Multi-turn Comparisons
 [^29]: Augmented Language Models: a Survey https://arxiv.org/pdf/2302.07842
 [^30]: ReAct: Synergizing Reasoning and Acting in Language Models
 [^31]: HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering
@@ -189,6 +177,8 @@ We invite the AI community to use this benchmark in evaluating their enterprise 
 [^39]: On the Tool Manipulation Capability of Open-source Large Language Models
 [^40]: Gorilla: Large Language Model Connected with Massive APIs
 [^41]: From Local to Global: A Graph RAG Approach to Query-Focused Summarization
+[^42]: Recent Advances and Challenges in Task-oriented Dialog Systems
+[^43]: PARADISE: A Framework for Evaluating Spoken Dialogue Agents
 
 
 
