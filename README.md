@@ -8,30 +8,29 @@ To address this challenge and measure the effectiveness of AI systems in enterpr
 
 ### Evolution of LLM Benchmarks
 
-The landscape of AI benchmarks has evolved significantly over the past decade. Early benchmarks like SQuAD[^1], TriviaQA[^2], and NaturalQuestions[^3] focused primarily on evaluating question-answering capabilities over public information (typically using Wikipedia as source of truth). For database question-answering, specialized datasets like Spider[^4], WikiSQL[^5], and BIRD[^6] have emerged to evaluate a language model's ability to translate natural language queries into SQL statements (text-to-SQL).
-. With the emergence of Large Language Models (LLMs), these traditional benchmarks have been largely surpassed. More recent evaluations like MMLU[^7] and Big-Bench Hard[^8] have shifted focus to assess broader reasoning and language understanding capabilities more appropriate for modern LLMs. There is still significant energy in both academia and industry in creating good datasets for benchmarking different LLM capabilities as seen by OpenAI's SimpleQA[^9] benchmark.
+The landscape of AI benchmarks has evolved significantly over the last few years. Early benchmarks like SQuAD[^1], TriviaQA[^2], and NaturalQuestions[^3] focused primarily on evaluating question-answering capabilities over public information (typically using Wikipedia as source of truth). For database question-answering, specialized datasets like Spider[^4], WikiSQL[^5], and BIRD[^6] have emerged to evaluate a language model's ability to translate natural language queries into SQL statements (text-to-SQL). With the emergence of Large Language Models (LLMs), these traditional benchmarks have been largely surpassed. Recent evaluations like MMLU[^7], AGIEval[^35], Big-Bench (Hard)[^34],[^8] have ramped up efforts to assess broader reasoning and language understanding capabilities more appropriate for modern LLMs. There is still significant energy in both academia and industry in crafting representative datasets for benchmarking different LLM capabilities as seen most recently by OpenAI's SimpleQA[^9] benchmark.
 
 ### Benchmarks for LLMs with External Systems
 
-While traditional benchmarks evaluate AI capabilities using knowledge embedded within model parameters, a new class of benchmarks has emerged to assess LLM performance when interfacing with external systems. These generally fall into two categories:
+While traditional benchmarks evaluate LLM capabilities relying on the implicit knowledge embedded within model parameters, a new set of benchmarks has emerged to assess LLM performance when augmented with external systems. Augmenting an LLM with an external system, generally falls into two categories:
 
-1. Retrieval-augmented approaches[^10],[^11]: This incorporates explicit retrieval steps to enhance the user input with external data. Classic benchmarks like TriviaQA[^2] and NaturalQuestions[^3] have been adapted for retrieval-augmentation using text embedding methods (like S-BERT[^12]). Benchmarks like HotPotQA are used for evaluating multi-hop retrieval strategies. like FRAMES[^13] and CRAG[^14] enhance the complexity of the questions and make it more real-world.
+1. Retrieval-augmented approaches[^10],[^11],[^36]: This approach incorporates explicit retrieval steps of relevant data from a large database and provided alongside the user input. Most classic benchmarks like TriviaQA[^2] and NaturalQuestions[^3] have been used for evaluating retrieval-augmented techniques by using a Wikipedia database. There are various benchmarks like MTEB[^37] which measure the capabilities of text embedding models (like S-BERT[^12]) typically used in the retrieval phase. More complex benchmarks like HotPotQA[^31] (for multi-hop questions) and FEVER[^38] (for fact verification) enhance the task complexity for LLMs and illustrate the need to use retrieval-augmented approaches. More recently, benchmarks like FRAMES[^13] and CRAG[^14] have emerged to make the questions in the dataset more real-world.
 
-2. Tool use[^25], [^30]: Tool use enables LLMs to dynamically request and interact with external tools - from simple calculators to complex APIs and web search capabilities. This is a more recent advancement and various benchmarks like ToolQA[^26], API-bank[^27] and HotPotQA[^31] are used for evaluating tool use capability of the LLM. More recently, tool use has enabled diverse efforts in making more agentic systems and generic assistants as evident from benchmarks like GAIA[^32].
+2. Tool use[^25], [^30]: Tool use enables LLMs to dynamically request and interact with external tools - from simple calculators to data APIs and web search capabilities. To measure the efficiency of an LLM to use tools correctly, benchmarks like ToolQA[^26], API-bank[^27], API-bench[^40] and ToolBench[^39] are used for evaluating tool use capability of the LLM. More recently, tool use for real-world use-cases like generic assistance has paved the way for benchmarks like GAIA[^32].
 
 ### Limitations for Enterprise Applications
 
-Current benchmarks face several critical limitations when applied to enterprise settings:
+Current benchmarks face several limitations when applied to enterprise settings:
 
-1. **Data Privacy Context**: Existing benchmarks predominantly focus on public knowledge. While they incorporate retrieval and tool use, they fail to capture the unique challenges of private organizational data. Enterprise environments typically involve sensitive, proprietary information
+1. **Data Privacy Context**: Existing benchmarks predominantly focus on public knowledge. While they can incorporate retrieval and tool use, they fail to capture the unique challenges of private organizational data. Enterprise environments typically involve sensitive, proprietary information based on dynamic security rules.
 
-2. **Data Source Complexity**: Traditional benchmarks evaluate performance on single sources or databases. Enterprise data typically spans multiple systems and formats. Integration challenges are often overlooked in current evaluations
+2. **Data Source Complexity**: Traditional benchmarks evaluate performance on a single source of data or database. Enterprise data typically spans multiple systems and formats. Integration challenges are often overlooked in current evaluations
 
-3. **Task Authenticity**: Most benchmarks rely on synthetic or academic tasks. Even advanced datasets like GAIA[^32] fail to capture typical enterprise queries. Real business questions often involve different complexity patterns
+3. **Task Authenticity**: Most benchmarks rely on synthetic or academic tasks (factual question-answering on wikipedia like data being most common). Even advanced datasets like GAIA[^32] fail to capture typical business queries. Real business questions often involve a combination of information retrieval, exploration and decision making.
 
-4. **Data Dynamism**: Existing benchmarks typically use static datasets. Enterprise systems must handle dynamic, continuously updating data sources. Real-time data processing requirements are rarely addressed
+4. **Data Dynamism**: Existing benchmarks typically use static datasets. Enterprise systems must handle dynamic, continuously updating data sources. 
 
-5. **Full System Evaluation**: Most benchmarks focus on isolated capabilities like retrieval or reasoning, rather than assessing how these components work together in production environments. This challenge is particularly acute in enterprise settings, where data sprawl, heterogenous data structures, custom data organization is very common.
+5. **User-goal Evaluation**: Traditional benchmarks focus on isolated capabilities (like retrieval or reasoning) or specific tasks (factual question-answering or fact verification) in a restricted way (zero-shot, single-shot, etc), rather than assessing how a typical user would use an AI system to achieve their goal. 
 
 These limitations underscore the need for new benchmark frameworks specifically designed to evaluate AI systems' effectiveness in enterprise contexts, with particular attention to real-world data complexity, privacy requirements, and task complexity.
 
@@ -39,11 +38,11 @@ These limitations underscore the need for new benchmark frameworks specifically 
 
 We will briefly overview few common approaches to build systems on enterprise data and discuss their limitations.
 
-**RAG**: RAG[^10],[^11] enhances AI responses by incorporating searched documents as additional context, using text embeddings as its primary search mechanism. Although few use-cases like "needle in the haystack" work decently with RAG, it faces key limitations: embeddings lack temporal awareness and attribute filtering, can't maintain user authorization, and are limited to text data while missing structured database information.
+**RAG**: RAG is a type of retrieval-augmented approach[^10],[^11],[^36] where text-embedding based search is used to enhance the grounding of the responses generated by the LLM. Although few use-cases like "needle in the haystack" (described later) cater well to RAG approaches, it faces key limitations: lack of temporal awareness and attribute filtering, challenging to maintain user authorization with embeddings based search, and perhaps most importantly: limited to textual data.
 
-**Text-to-SQL**: Database question-answering leverages text-to-SQL[^12] systems for data retrieval, but is limited in it's scope. The reality of  enterprise data is that it's usually spread across multiple databases and is stored in different forms. SQL's inherent limitations make it unsuitable for tasks like summarization and classification, especially when dealing with unstructured data.
+**Text-to-SQL**: Database question-answering leverages text-to-SQL[^12] systems for data retrieval, but is limited in it's scope. The reality of  enterprise data is that it's usually spread across multiple databases and is stored in different column formats (complex types like JSON/STRUCT also becoming quite common). Moreover, SQL systems can only ever answer structured search or data aggregation kind of problems. SQL's inherent limitations make it unsuitable for tasks like summarization, classification and business-logic based computations.
 
-**Tool use**: Tool use[^25], [^30] in LLMs provides the most flexible approach for retrieving data and executing tasks, but faces practical challenges: missing APIs, poor documentation, and increased hallucination risk when handling large data inputs for the tool use. These limitations significantly impact the reliability of tool-based approaches in production environments.
+**Tool use**: Tool use[^25], [^30] in LLMs provides the most flexible approach for retrieving data and executing tasks, but faces practical challenges: missing APIs, poor documentation for APIs, and increased hallucination risk when handling large data inputs when composing tools. These limitations significantly impact the reliability of tool-use based approaches in production environments.
 
 
 ## About the Data Access Agent Benchmark
@@ -163,7 +162,6 @@ We invite the AI community to use this benchmark in evaluating their enterprise 
 [^12]: Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks
 [^13]: FRAMES: Fact, Fetch, and Reason: A Unified Evaluation of Retrieval-Augmented Generation
 [^14]: Comprehensive RAG Benchmark
-[^4]: Srivastava et al. (2022). Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models
 [^5]: Liu et al. (2023). AgentBench: Evaluating LLMs as Agents
 [^6]: Wei et al. (2024). SimpleQA: A Factuality Benchmark for Language Models
 [^7]: LangChain Documentation (2023)
@@ -191,6 +189,14 @@ We invite the AI community to use this benchmark in evaluating their enterprise 
 [^31]: HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering
 [^32]: GAIA: A Benchmark for General AI Assistants
 [^33]: Retrieval-Augmented Generation for AI-Generated Content: A Survey
+[^34]: Srivastava et al. (2022). Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models
+[^35]: AGIEval: A Human-Centric Benchmark for Evaluating Foundation Models
+[^36]: Improving language models by retrieving from trillions of tokens
+[^37]: MTEB: Massive Text Embedding Benchmark
+[^38]: FEVER: a large-scale dataset for Fact Extraction and VERification
+[^39]: On the Tool Manipulation Capability of Open-source Large Language Models
+[^40]: Gorilla: Large Language Model Connected with Massive APIs
+
 
 
 
