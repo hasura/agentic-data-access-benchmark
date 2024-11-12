@@ -80,6 +80,7 @@ The benchmark identifies several fundamental use-case categories that are common
 10. **Point Search**: Finding specific items which satisfy complex descriptions
 11. **Structured Information Extraction**: Extracting key-value pairs from unstructured text
 12. **Data Visualization**: Transforming data into human-friendly formats
+13. **Action**: Tasks that have a permanent effect on the state of the data
 
 ## Question Distribution
 
