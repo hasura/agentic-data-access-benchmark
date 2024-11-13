@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.13)  13 NOV 2024 20:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.13)  13 NOV 2024 21:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -723,50 +723,9 @@ Overfull \hbox (56.90546pt too wide) in paragraph at lines 127--129
 [][][] 
  []
 
-
-LaTeX Warning: Citation '42' on page 4 undefined on input line 145.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--146
-
- []
-
 [4 <../agentic-complexity-levels.png> <../query_distribution_by_domain.png> <..
 /use-case-category-distribution.png> <../use-cases-by-domain.png> <../agentic-c
-omplexity-types.png> <../complexity-levels-by-domain.png>]
-
-LaTeX Warning: Citation '43' on page 5 undefined on input line 147.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 147--148
-
- []
-
-
-LaTeX Warning: Citation '19' on page 5 undefined on input line 149.
-
-
-LaTeX Warning: Citation '10' on page 5 undefined on input line 155.
-
-
-LaTeX Warning: Citation '11' on page 5 undefined on input line 155.
-
-
-LaTeX Warning: Citation '36' on page 5 undefined on input line 155.
-
-
-LaTeX Warning: Citation '41' on page 5 undefined on input line 155.
-
-
-LaTeX Warning: Citation '12' on page 5 undefined on input line 157.
-
-
-LaTeX Warning: Citation '25' on page 5 undefined on input line 159.
-
-
-LaTeX Warning: Citation '30' on page 5 undefined on input line 159.
-
-[5]
+omplexity-types.png> <../complexity-levels-by-domain.png>] [5]
 Overfull \hbox (0.78851pt too wide) in paragraph at lines 177--177
 []\T1/cmr/m/n/10.95 Patrick Lewis et al. ``Retrieval-Augmented Gen-er-a-tion fo
 r Knowledge-Intensive NLP Tasks''.
@@ -805,26 +764,25 @@ Package logreq Info: Writing requests to 'paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 18594 strings out of 474116
- 331593 string characters out of 5743681
+ 18617 strings out of 474116
+ 332508 string characters out of 5743681
  1940187 words of memory out of 5000000
- 40711 multiletter control sequences out of 15000+600000
- 569077 words of font info for 57 fonts, out of 8000000 for 9000
+ 40730 multiletter control sequences out of 15000+600000
+ 568294 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,6n,81p,1872b,1439s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb>
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></
-usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></us
-r/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/
-local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/lo
-cal/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/loca
-l/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/
-texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/te
-xlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on paper.pdf (7 pages, 405207 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></
+usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></us
+r/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/
+local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/lo
+cal/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/loca
+l/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/
+texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on paper.pdf (7 pages, 385803 bytes).
 PDF statistics:
- 241 PDF objects out of 1000 (max. 8388607)
- 199 compressed objects within 2 object streams
- 65 named destinations out of 1000 (max. 500000)
+ 253 PDF objects out of 1000 (max. 8388607)
+ 212 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
  127 words of extra memory for PDF output out of 10000 (max. 10000000)
 

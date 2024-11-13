@@ -374,7 +374,7 @@
          giveni={J\bibinitperiod},
       }}%
     }
-    \strng{namehash}{HD+1}
+    \strng{namehash}{HD+2}
     \strng{fullhash}{HDBCBSZAMMSDSJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
@@ -1486,6 +1486,243 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{title}{GAIA: A benchmark for General AI Assistants}
+    \field{year}{2023}
+  \endentry
+
+  \entry{goal-oriented}{article}{}
+    \name{author}{5}{}{%
+      {{hash=ZZ}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Zheng},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=TR}{%
+         family={Takanobu},
+         familyi={T\bibinitperiod},
+         given={Ryuichi},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=ZQ}{%
+         family={Zhu},
+         familyi={Z\bibinitperiod},
+         given={Qi},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=HM}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Minlie},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=ZX}{%
+         family={Zhu},
+         familyi={Z\bibinitperiod},
+         given={Xiaoyan},
+         giveni={X\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZZ+1}
+    \strng{fullhash}{ZZTRZQHMZX1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Recent Advances and Challenges in Task-oriented Dialog
+  System}
+    \field{year}{2020}
+  \endentry
+
+  \entry{paradise}{article}{}
+    \name{author}{4}{}{%
+      {{hash=WMA}{%
+         family={Walker},
+         familyi={W\bibinitperiod},
+         given={Marilyn\bibnamedelima A},
+         giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=LDJ}{%
+         family={Litman},
+         familyi={L\bibinitperiod},
+         given={Diane\bibnamedelima J},
+         giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=KCA}{%
+         family={Kamm},
+         familyi={K\bibinitperiod},
+         given={Candace\bibnamedelima A},
+         giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=AA}{%
+         family={Abella},
+         familyi={A\bibinitperiod},
+         given={Alicia},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WMA+1}
+    \strng{fullhash}{WMALDJKCAAA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{PARADISE: A Framework for Evaluating Spoken Dialogue Agents}
+    \field{journaltitle}{arXiv preprint cmp-lg/9704004}
+    \field{year}{1997}
+  \endentry
+
+  \entry{ham2023challenges}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=HD}{%
+         family={Ham},
+         familyi={H\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HD+1}
+    \strng{fullhash}{HD+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Challenges in Deploying Task-Oriented Dialogue Systems in
+  Enterprise Settings}
+    \field{journaltitle}{arXiv preprint}
+    \field{year}{2023}
+  \endentry
+
+  \entry{graphrag}{article}{}
+    \name{author}{8}{}{%
+      {{hash=ED}{%
+         family={Edge},
+         familyi={E\bibinitperiod},
+         given={Darren},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=TH}{%
+         family={Trinh},
+         familyi={T\bibinitperiod},
+         given={Ha},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=CN}{%
+         family={Cheng},
+         familyi={C\bibinitperiod},
+         given={Newman},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=BJ}{%
+         family={Bradley},
+         familyi={B\bibinitperiod},
+         given={Joshua},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Chao},
+         familyi={C\bibinitperiod},
+         given={Alex},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Mody},
+         familyi={M\bibinitperiod},
+         given={Apurva},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=TS}{%
+         family={Truitt},
+         familyi={T\bibinitperiod},
+         given={Steven},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=LJ}{%
+         family={Larson},
+         familyi={L\bibinitperiod},
+         given={Jonathan},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ED+1}
+    \strng{fullhash}{EDTHCNBJCAMATSLJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{From Local to Global: A Graph RAG Approach to Query-Focused
+  Summarization}
+    \field{year}{2024}
+  \endentry
+
+  \entry{text-to-sql}{article}{}
+    \name{author}{11}{}{%
+      {{hash=LQ}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Qian},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=DM}{%
+         family={Du},
+         familyi={D\bibinitperiod},
+         given={Mengyang},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LX}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Xiang},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=ZA}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Aoying},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=WC}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Chuan},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Haixu},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=LZ}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Zhipeng},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=DY}{%
+         family={Dong},
+         familyi={D\bibinitperiod},
+         given={Yuhao},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Shen},
+         familyi={S\bibinitperiod},
+         given={Siyu},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=TY}{%
+         family={Tang},
+         familyi={T\bibinitperiod},
+         given={Yaliang},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=ZW}{%
+         family={Zheng},
+         familyi={Z\bibinitperiod},
+         given={Wenhao},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LQ+1}
+    \strng{fullhash}{LQDMLXZAWCWHLZDYSSTYZW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Text-to-SQL: State of the Art and Future Directions}
+    \field{journaltitle}{arXiv preprint arXiv:2312.09158}
     \field{year}{2023}
   \endentry
 \enddatalist
