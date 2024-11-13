@@ -12,11 +12,11 @@ The landscape of AI benchmarks has evolved significantly over the last few years
 
 ### Benchmarks for LLMs with External Systems
 
-While traditional benchmarks evaluate LLM capabilities relying on the implicit knowledge embedded within model parameters, a new set of benchmarks has emerged to assess LLM performance when augmented with external systems. Augmenting an LLM with an external system, generally falls into two categories:
+While traditional benchmarks evaluate LLM capabilities relying on the implicit knowledge embedded within model parameters, a new set of benchmarks has emerged to assess LLM performance when augmented with external systems. Such augmentation is necessary when responses need to be grounded[^44] in facts that are present in these external systems. Though fine-tuning LLMs[^45] with additional data represents one augmentation approach, practical considerations like training costs, keeping models up-to-date, and security considerations have limited its industry adoption. Instead, current industry practices primarily fall into two categories:
 
-1. Retrieval-augmented approaches[^10],[^11],[^36]: This approach incorporates explicit retrieval steps of relevant data from a large database and provided alongside the user input. Most classic benchmarks like TriviaQA[^2] and NaturalQuestions[^3] have been used for evaluating retrieval-augmented techniques by using a Wikipedia database. There are various benchmarks like MTEB[^37] which measure the capabilities of text embedding models (like S-BERT[^12]) typically used in the retrieval phase. More complex benchmarks like HotPotQA[^31] (for multi-hop questions) and FEVER[^38] (for fact verification) enhance the task complexity for LLMs and illustrate the need to use retrieval-augmented approaches. More recently, benchmarks like FRAMES[^13] and CRAG[^14] have emerged to make the questions in the dataset more real-world.
+1. **Retrieval-augmented approaches**[^10],[^11],[^36]: This approach incorporates explicit retrieval steps of relevant data from a large database and provided alongside the user input. Most classic benchmarks like TriviaQA[^2] and NaturalQuestions[^3] have been used for evaluating retrieval-augmented techniques by using a Wikipedia database. There are various benchmarks like MTEB[^37] which measure the capabilities of text embedding models (like S-BERT[^12]) typically used in the retrieval phase. More complex benchmarks like HotPotQA[^31] (for multi-hop questions) and FEVER[^38] (for fact verification) enhance the task complexity for LLMs and illustrate the need to use retrieval-augmented approaches. More recently, benchmarks like FRAMES[^13] and CRAG[^14] have emerged to make the questions in the dataset more real-world.
 
-2. Tool use[^25], [^30]: Tool use enables LLMs to dynamically request and interact with external tools - from simple calculators to data APIs and web search capabilities. To measure the efficiency of an LLM to use tools correctly, benchmarks like ToolQA[^26], API-bank[^27], API-bench[^40] and ToolBench[^39] are used for evaluating tool use capability of the LLM. More recently, tool use for real-world use-cases like generic assistance has paved the way for benchmarks like GAIA[^32].
+2. **Tool use**[^25], [^30]: Tool use enables LLMs to dynamically request and interact with external tools - from simple calculators to data APIs and web search capabilities. To measure the efficiency of an LLM to use tools correctly, benchmarks like ToolQA[^26], API-bank[^27], API-bench[^40] and ToolBench[^39] are used for evaluating tool use capability of the LLM. More recently, tool use for real-world use-cases like generic assistance has paved the way for benchmarks like GAIA[^32].
 
 ### Limitations for Enterprise Applications
 
@@ -179,6 +179,8 @@ We invite the AI community to use this benchmark in evaluating their enterprise 
 [^41]: From Local to Global: A Graph RAG Approach to Query-Focused Summarization
 [^42]: Recent Advances and Challenges in Task-oriented Dialog Systems
 [^43]: PARADISE: A Framework for Evaluating Spoken Dialogue Agents
+[^44]: Grounding and Evaluation for Large Language Models: Practical Challenges and Lessons Learned 
+[^45]: Few-shot Fine-tuning vs. In-context Learning: A Fair Comparison and Evaluation
 
 
 
