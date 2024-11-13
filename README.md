@@ -53,7 +53,6 @@ With DAAB, our goal was to create a benchmark with the following properties:
 - **Real-world relevance**: Questions are derived from actual enterprise use cases across common domains like Customer Support, Email+Calendar, Sales, and HR.
 - **Comprehensive evaluation**: The benchmark tests various complexity levels of data access and computation, from simple retrieval to complex multi-step operations.
 - **System-agnostic**: The benchmark can evaluate any AI system architecture, whether it uses a single large model or multiple specialized components.
-- **Practical applicability**: Questions reflect tasks that enterprise users actually need help with, making the benchmark results directly relevant to real-world applications.
 
 ## Benchmark Structure
 
@@ -84,33 +83,18 @@ The benchmark identifies several fundamental use-case categories that are common
 
 ## Question Distribution
 
-TODO: Add a pie chart showing the distribution of questions across different dimensions (domains, complexity levels, use case categories)
-
-## Example Questions and Systems
-
-Here are some example questions from the benchmark that illustrate different complexity levels:
-
-**High Complexity**:
-```
-"Help me prioritize support ticket #1234 amongst other open tickets based on user's plan, revenue and usage"
-
-Data Requirements:
-1. Get all Tickets with status=open
-2. Get Project from project_name or submitter email
-3. Get Plan from Project
-4. Get Invoices from project
-5. Get Usage from Project
-```
-
-**Medium Complexity**:
-```
-"Are there any support tickets that have not been responded to in the last 30 days"
-
-Data Requirements:
-1. Get Tickets and Ticket Comments of last 30 days
-```
-
-TODO: Add example system architectures and how they approach these questions
+<table>
+  <tr>
+    <td><img src="./query_distribution_by_domain.png" alt="Question distribution by domain" width="400"></td>
+    <td><img src="./complexity-levels-by-domain.png" alt="Question distribution by complexity" width="400"></td>
+  </tr>
+  <tr>
+    <td><img src="./agentic-complexity-levels.png" alt="Agentic complexity levels" width="400"></td>
+    <td><img src="./agentic-complexity-types.png" alt="Agentic complexity types" width="400"></td>
+  </tr>
+  <td><img src="./use-case-category-distribution.png" alt="Use-case categories distribution" width="400"></td>
+  <td><img src="./use-cases-by-domain.png" alt="Use-case categories by domain" width="400"></td>
+</table>
 
 
 ## Evaluation Methodology
