@@ -1,0 +1,77 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: paper.aux
+The style file: biblatex.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated field_info (elt_size=4) to 10600 items from 5000.
+Database file #1: paper-blx.bib
+Database file #2: references.bib
+Warning--I didn't find a database entry for "42"
+Warning--I didn't find a database entry for "43"
+Warning--I didn't find a database entry for "19"
+Warning--I didn't find a database entry for "10"
+Warning--I didn't find a database entry for "11"
+Warning--I didn't find a database entry for "36"
+Warning--I didn't find a database entry for "41"
+Warning--I didn't find a database entry for "12"
+Warning--I didn't find a database entry for "25"
+Warning--I didn't find a database entry for "30"
+Biblatex version: 3.19
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 30 entries,
+            6399 wiz_defined-function locations,
+            1328 strings with 15332 characters,
+and the built_in function-call counts, 394145 in all, are:
+= -- 36324
+> -- 3504
+< -- 501
++ -- 15052
+- -- 1559
+* -- 26754
+:= -- 53208
+add.period$ -- 0
+call.type$ -- 30
+change.case$ -- 207
+chr.to.int$ -- 48
+cite$ -- 58
+duplicate$ -- 45265
+empty$ -- 30783
+format.name$ -- 3010
+if$ -- 73984
+int.to.chr$ -- 0
+int.to.str$ -- 63
+missing$ -- 0
+newline$ -- 1470
+num.names$ -- 1120
+pop$ -- 12911
+preamble$ -- 1
+purify$ -- 605
+quote$ -- 0
+skip$ -- 4772
+stack$ -- 0
+substring$ -- 67821
+swap$ -- 4951
+text.length$ -- 697
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 1008
+warning$ -- 0
+while$ -- 6997
+width$ -- 0
+write$ -- 1441
+(There were 10 warnings)

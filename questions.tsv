@@ -128,16 +128,18 @@ Summarize the themes in the issues and discussions created this month	Engineerin
 How often are tests failing on PRs? Share some stats	Engineering Management		Medium	Smart search strategy	Data visualization, Data aggregation
 Find issues which can potentially be closed by the fix in PR #1234	Engineering Management		High	Smart search strategy, Compute	Bulk classification
 Create release notes from commit hash `abcd` to latest commit in main	Engineering Management		Medium	Smart search strategy	Multi-step retrieval
+What are the PRs going in the next release?	Engineering Management		Medium	Smart search strategy	Multi-step retrieval
 Find issues similar to issue #1234	Engineering Management		Medium	Smart search strategy	Bulk classification
 Are there any issues related to performance since the last release 	Engineering Management		High	Smart search strategy, Compute	Structured search, Bulk classification
 Are there any support tickets related to issue #1234	Engineering Management		Medium	Smart search strategy	Multi-step retrieval, Bulk classification
 Get all issues created by paid plan users	Engineering Management		High	Following connections, Smart search strategy	Multi-step retrieval
 Are there any support tickets of type `feature-request` which don't have a Github ticket	Engineering Management		High	Smart search strategy, Compute	Multi-step retrieval, Bulk classification
 Which PRs have been open for more than 30 days	Engineering Management		Medium	Smart search strategy	Structured search
-What's the DORA metrics for app repo	Engineering Management		High	Following connections, Compute	Multi-step retrieval
+What are the DORA metrics for app repo	Engineering Management		High	Following connections, Compute	Multi-step retrieval
 How many PRs have closed this month 	Engineering Management		Medium	Compute	Data aggregation
 What's the average number of revisions on a PR before it is approved	Engineering Management		High	Following connections, Compute	Data aggregation
 Any contributor communicating negatively on issues and PR comments in last 30 days?	Engineering Management		High	Smart search strategy, Compute	Multi-step retrieval, Bulk classification
 Who are new contributors in this repo with decent contribution? Look at PRs merged and lines of code changed	Engineering Management		Medium	Smart search strategy	Multi-step retrieval
 Are there issues in the repo which are related to adding appropriate documentation	Engineering Management		Medium	Compute	Bulk classification
 Can you give a count of bug fixes over last month	Engineering Management		Medium	Compute	Bulk classification, Data aggregation
+How many PRs have been merged related to performance optimization	Engineering Management		Medium	Compute	Bulk classification, Data aggregation
