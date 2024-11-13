@@ -42,7 +42,7 @@ We will briefly overview few common approaches to build systems on enterprise da
 
 **Text-to-SQL**: Database question-answering leverages text-to-SQL[^12] systems for data retrieval, but is limited in it's scope. The reality of  enterprise data is that it's usually spread across multiple databases and is stored in different column formats (complex types like JSON/STRUCT also becoming quite common). Moreover, SQL systems can only ever answer filter-based search or data aggregation kind of questions. SQL's inherent limitations make it unsuitable for tasks like summarization, classification and business-logic based computations.
 
-**Tool use**: Tool use[^25], [^30] in LLMs provides the most flexible approach for retrieving data and executing tasks, but faces practical challenges: missing APIs, poor documentation for APIs, and increased hallucination risk when handling large data inputs when composing tools. These limitations significantly impact the reliability of tool-use based approaches in production environments.
+**Tool use**: Tool use[^25], [^30] in LLMs provides the most flexible approach for retrieving data and executing tasks, but faces practical challenges: missing APIs, poor documentation for APIs, and increased hallucination risk when handling large data inputs for these tools. These limitations significantly impact the reliability of tool use based approaches in real-world environments.
 
 ## About the Data Access Agent Benchmark
 
