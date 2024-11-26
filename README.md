@@ -39,7 +39,7 @@ While traditional benchmarks evaluate LLM capabilities relying on the implicit k
 
 1. **Retrieval-augmented approaches**: This approach incorporates explicit retrieval steps of relevant data from a large database and provided alongside the user input. Most classic benchmarks like TriviaQA and NaturalQuestions have been used for evaluating retrieval-augmented techniques by using a Wikipedia database. There are various benchmarks like MTEB which measure the capabilities of text embedding models (like S-BERT) typically used in the retrieval phase. More complex benchmarks like HotPotQA (for multi-hop questions) and FEVER (for fact verification) enhance the task complexity for LLMs and illustrate the need to use retrieval-augmented approaches. More recently, benchmarks like FRAMES and CRAG have emerged to make the questions in the dataset more real-world.
 
-2. **Tool use**: Tool use enables LLMs to dynamically request and interact with external tools - from simple calculators to data APIs and web search capabilities. To measure the efficiency of an LLM to use tools correctly, benchmarks like ToolQA, API-Bank, APIBench (and subsequently BFCL) and ToolBench are used for evaluating tool use capability of the LLM. More recently, tool use for general assistants has paved the way for benchmarks like GAIA.
+2. **Tool use**: Tool use enables LLMs to dynamically request and interact with external tools - from simple calculators to data APIs and web search capabilities. To measure the efficiency of an LLM to use tools correctly, benchmarks like ToolQA, API-Bank, APIBench (and subsequently BFCL[^55]) and ToolBench[^56] are used for evaluating tool use capability of the LLM. More recently, tool use for general assistants has paved the way for benchmarks like GAIA.
 
 ## About the Data Access Agent Benchmark
 
@@ -227,3 +227,5 @@ We invite the AI community to use this benchmark in evaluating their enterprise 
 [54] Liu et al. (2023) - "Text-to-SQL: State of the Art and Future Directions"
 
 [55] Yan et al. (2024) - "Berkeley Function Calling Leaderboard" : https://gorilla.cs.berkeley.edu/blogs/8_berkeley_function_calling_leaderboard.html
+
+[56] Qin et al. (2023) - "ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs"
