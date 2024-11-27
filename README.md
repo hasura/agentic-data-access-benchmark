@@ -50,7 +50,7 @@ In total we have ~150 questions, the high level breakdown of the question on dif
 
 ## Use-case categories
 
-Below we describe fundamental use-case categories which are common across all domains: 
+Here are a list of use-case categories which represent common high-value tasks and workflows with business data.
 
 ### Multi-step data retrieval
 
@@ -59,6 +59,11 @@ It is possible that the data from one step is used in the next step (composition
 
 *Example question (Customer Support):*  Get the projects, invoices, project usage for the user wile@acme.corp 
 
+## Attribute search
+
+Attribute search is retrieving data by filtering or ordering on an attribute.
+
+*Example question (Customer Support):* Get user information for user id 1
 
 ### Data aggregation
 
@@ -80,6 +85,12 @@ Usually the classification is based on textual input rather than structured attr
 
 *Example question (Email):* Get all receipts from food orders this month
 
+### Decision making
+
+Involves analyzing different data to help make an informed choice as to next course of action.
+
+*Example question (Engineering Management):* what priority should I assign to this issue given its criticality, its reach, our business objectives, this particular customer's experience and the product roadmap
+
 ### Clustering
 
 This use-case involves finding similar properties in bulk data. 
@@ -99,9 +110,20 @@ This use-case involves extracting information from textual data in a structured 
 
 *Example question (Sales):*  Create a new opportunity for Acme corp from recent call transcripts, fill in Opportunity Name, Segment, Product SKU, ARR and Next Steps
 
+### Information search
+
+Searching for all relevant documents given relevant query strings, keywords or semantic similarity.
+
+*Example question (Engineerng management):* What is the product roadmap for Q2?
 
 ### Data visualization
 
 This use-case essentially involves visualizing or transforming data in a way where it is more easily consumable for a human.
 
 *Example question (Email):* How have I spent my time on meetings this month?
+
+### Action
+
+Tasks that have a state changing effect.
+
+*Example (Email):* Send an email telling other meeting attendees that I'll not be able to attend.
