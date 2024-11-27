@@ -1,17 +1,18 @@
-# Agentic Data Access and Computation benchmark (ADAC)
+# Business Data Benchmark
 
-Agentic Data Access and Computation (ADAC) benchmark is a set of real-world questions over a few "closed domains" to illustrate the evaluation of AI assistants/agents in closed domains.
-Closed domains are domains where data is not available implicitly in the LLM as they reside in secure or private systems e.g. enterprise databases, SaaS applications, etc,
-and AI solutions require mechanisms to connect an LLM to such data. If you are evaluating an AI product or building your own AI architecture over closed domains, then you can use 
-these questions/nature of questions to understand the capabilities of your system and qualitatively measure the performance of your assistants/agents.
+*Status: Work In Progress*
 
-ADAC benchmark was created because of severe shortcomings found in closed domain assistants in the wild. We found that apart from a few basic canned questions or workflows,
-the assistants were struggling to do anything new. This was found to be because the assistant is not connected 
-to sufficient data and is unable to perform complex or sequential operations over that data. We call the ability of an AI system, given the description of data, to agentically use and operate on that data as agentic data access.
+## Introduction
 
-<p align="center">
-<img src="./agentic-data-access-flowchart.png" alt="Agentic data access" width="600">
-</p>
+While language models have shown impressive capabilities with public knowledge, users still struggle with trusting AI systems that are connected to business data. This drastically limits how much AI can be integrated into day to day business. 
+
+Business data has the following characteristics:
+1. Part of business operations
+2. Heterogenous: unstructured, structured
+3. Dynamic: changes often esp. operational/transactional systems
+4. Sensitive: Privacy and security sensitive
+
+This benchmark contains approximately 150 questions across different enterprise domains. As of writing, this could be one of the 5 domains: Customer support, Email+calendar, Sales, HR and Engineering Management. More about these domains is described in Appendix A. Although these are specific domains, we hope that the use-cases in these domains are generalizable to any domain and hence provide valuable insights into different kinds of questions that a human user might ask an AI system.
 
 ## About the questions
 
