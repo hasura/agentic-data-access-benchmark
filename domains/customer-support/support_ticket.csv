@@ -530,7 +530,7 @@ Current load:
 - Concurrent: 1000
 
 How should we debug this action?",,,7,2024-06-26 00:54:26.739395+00,https://hasura.zendesk.com/agent/tickets/26
-27,t,normal,closed,Remote schema requests failing after 5 minutes,"Hi,
+27,t,urgent,closed,Remote schema requests failing after 5 minutes,"Hi,
 
 Remote schema requests are timing out after 5 minutes:
 
@@ -694,7 +694,7 @@ query {
 ```
 
 How can we optimize this query?",,1454,9,2024-08-26 18:24:05.252078+00,https://hasura.zendesk.com/agent/tickets/34
-35,t,low,pending,Cron trigger failing for promotions updates,"Hi Hasura team,
+35,t,urgent,pending,Cron trigger failing for promotions updates,"Hi Hasura team,
 
 Our cron trigger for updating promotions is failing:
 
@@ -925,7 +925,7 @@ Environment:
 - Database size: 10TB
 
 We've verified network access and credentials. What else should we check?",,8907,12,2024-08-28 12:34:05.115595+00,https://hasura.zendesk.com/agent/tickets/46
-47,t,normal,closed,Remote schema requests failing after 5 minutes,"Hi,
+47,t,urgent,closed,Remote schema requests failing after 5 minutes,"Hi,
 
 Remote schema requests are timing out after 5 minutes:
 
@@ -982,7 +982,7 @@ Current roles:
 Error: version mismatch
 
 How should we configure multiple role mapping?",,7840,12,2024-07-19 20:13:47.051633+00,https://hasura.zendesk.com/agent/tickets/49
-50,t,high,closed,Failed deployment to Docker Desktop with column access denied,"Hello Hasura team,
+50,t,urgent,closed,Failed deployment to Docker Desktop with column access denied,"Hello Hasura team,
 
 Our deployment to Docker Desktop failed with:
 
@@ -1091,7 +1091,7 @@ JWT payload structure:
 ```
 
 What's wrong with our JWT configuration?",,8907,13,2024-09-17 08:07:43.918092+00,https://hasura.zendesk.com/agent/tickets/54
-55,t,normal,open,Event trigger insufficient privileges for roles,"Hi team,
+55,t,urgent,open,Event trigger insufficient privileges for roles,"Hi team,
 
 Our event trigger for roles is failing:
 
@@ -1547,7 +1547,7 @@ Current load:
 - Concurrent: 50000
 
 How should we debug this action?",,6056,20,2024-07-16 21:22:06.937584+00,https://hasura.zendesk.com/agent/tickets/77
-78,t,high,open,Cron trigger failing for departments updates,"Hi Hasura team,
+78,t,urgent,open,Cron trigger failing for departments updates,"Hi Hasura team,
 
 Our cron trigger for updating departments is failing:
 
@@ -1944,7 +1944,7 @@ Last error: query complexity exceeded
 ```
 
 How can we resolve this deployment issue?",,7774,24,2024-08-07 20:48:03.647081+00,https://hasura.zendesk.com/agent/tickets/97
-98,t,normal,closed,Remote schema requests failing after 60 seconds,"Hi,
+98,t,urgent,closed,Remote schema requests failing after 60 seconds,"Hi,
 
 Remote schema requests are timing out after 60 seconds:
 
@@ -2203,7 +2203,7 @@ Current load:
 - Concurrent: 100
 
 How should we debug this action?",,,28,2024-05-29 21:44:14.750909+00,https://hasura.zendesk.com/agent/tickets/111
-112,t,high,open,Remote schema requests failing after 10 minutes,"Hi,
+112,t,urgent,open,Remote schema requests failing after 10 minutes,"Hi,
 
 Remote schema requests are timing out after 10 minutes:
 
@@ -3542,7 +3542,7 @@ permissions:
 Error: network unreachable
 
 How should we configure action permissions?",,,46,2024-04-30 19:10:23.684898+00,https://hasura.zendesk.com/agent/tickets/181
-182,t,normal,open,Cron trigger failing for payments updates,"Hi Hasura team,
+182,t,urgent,open,Cron trigger failing for payments updates,"Hi Hasura team,
 
 Our cron trigger for updating payments is failing:
 
@@ -3788,7 +3788,7 @@ Current roles:
 Error: expired JWT token
 
 How should we configure multiple role mapping?",,1754,48,2024-09-14 00:13:24.566546+00,https://hasura.zendesk.com/agent/tickets/193
-194,t,normal,closed,Event trigger invalid claims for performance_metrics,"Hi team,
+194,t,urgent,closed,Event trigger invalid claims for performance_metrics,"Hi team,
 
 Our event trigger for performance_metrics is failing:
 
@@ -4005,7 +4005,7 @@ permissions:
 Error: network unreachable
 
 How should we configure action permissions?",,,50,2024-06-01 22:57:45.747821+00,https://hasura.zendesk.com/agent/tickets/204
-205,t,normal,closed,Query performance degradation on roles,"Hi Hasura team,
+205,t,urgent,closed,Query performance degradation on roles,"Hi Hasura team,
 
 We're seeing significant performance issues with queries on roles:
 
@@ -4429,7 +4429,7 @@ permissions:
 Error: unauthorized role
 
 How should we configure action permissions?",,6056,56,2024-05-07 23:10:14.583722+00,https://hasura.zendesk.com/agent/tickets/225
-226,t,high,closed,Failed metadata migration for actions,"Hi,
+226,t,urgent,closed,Failed metadata migration for actions,"Hi,
 
 Metadata migration failed while configuring actions:
 
@@ -4874,7 +4874,7 @@ Last error: null value violation
 ```
 
 How can we resolve this deployment issue?",,7913,61,2024-07-05 19:17:49.483854+00,https://hasura.zendesk.com/agent/tickets/248
-249,t,normal,open,Database connection drops after 10 minutes,"Hello,
+249,t,urgent,open,Database connection drops after 10 minutes,"Hello,
 
 Our database connection keeps dropping after approximately 10 minutes of operation. Setup:
 
@@ -5382,7 +5382,7 @@ CREATE POLICY ""roles_access"" ON ""roles""
 ```
 
 Users are getting invalid JWT token errors. How should we modify the policy?",,7774,70,2024-06-21 01:31:02.318464+00,https://hasura.zendesk.com/agent/tickets/274
-275,t,normal,closed,Event trigger inconsistent state for roles,"Hi team,
+275,t,urgent,closed,Event trigger inconsistent state for roles,"Hi team,
 
 Our event trigger for roles is failing:
 
@@ -5421,7 +5421,7 @@ Pending events: 10K/day
 ```
 
 What's the best way to handle high-volume event triggers?",,6056,71,2024-09-22 20:39:42.749495+00,https://hasura.zendesk.com/agent/tickets/276
-277,t,normal,closed,Container health checks failing on Render.com,"Hi,
+277,t,urgent,closed,Container health checks failing on Render.com,"Hi,
 
 Our Hasura containers are failing health checks on Render.com:
 
@@ -5942,7 +5942,7 @@ Metrics:
 - Error rate: check constraint violation
 
 How can we optimize remote join performance?",,,79,2024-09-11 12:48:05.425076+00,https://hasura.zendesk.com/agent/tickets/302
-303,t,normal,closed,Database connection drops after 2 minutes,"Hello,
+303,t,urgent,closed,Database connection drops after 2 minutes,"Hello,
 
 Our database connection keeps dropping after approximately 2 minutes of operation. Setup:
 
@@ -6287,7 +6287,7 @@ Type: one-to-many
 ```
 
 How do we properly set up action relationships?",,9554,87,2024-09-05 04:22:44.325568+00,https://hasura.zendesk.com/agent/tickets/320
-321,t,low,closed,Database connection drops after 30 seconds,"Hello,
+321,t,urgent,closed,Database connection drops after 30 seconds,"Hello,
 
 Our database connection keeps dropping after approximately 30 seconds of operation. Setup:
 
@@ -6704,7 +6704,7 @@ Environment:
 - Database size: 10GB
 
 We've verified network access and credentials. What else should we check?",,,93,2024-08-16 07:56:41.304641+00,https://hasura.zendesk.com/agent/tickets/342
-343,t,normal,open,Event trigger memory limit exceeded for activity_logs,"Hi team,
+343,t,urgent,open,Event trigger memory limit exceeded for activity_logs,"Hi team,
 
 Our event trigger for activity_logs is failing:
 
@@ -6770,7 +6770,7 @@ JWT payload structure:
 ```
 
 What's wrong with our JWT configuration?",,8315,97,2024-09-01 07:22:22.722055+00,https://hasura.zendesk.com/agent/tickets/345
-346,t,normal,pending,Container health checks failing on AWS Fargate,"Hi,
+346,t,urgent,pending,Container health checks failing on AWS Fargate,"Hi,
 
 Our Hasura containers are failing health checks on AWS Fargate:
 
