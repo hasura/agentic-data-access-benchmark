@@ -1,0 +1,148 @@
+User goal,Domain,Data requirements,Agentic complexity level,Agentic complexity notes,Use-case category
+"Get the projects, invoices, project usage for the user tina.jackson@gray-smith.com",Customer Support,"1. Information for User and all its relationships, 2. Projects for the user, 3. Invoices for the user, 4. Usage for the Projects for the user",Medium,Following connections,Multi-step retrieval
+How many support tickets were created in the last X days and how many of those are still open,Customer Support,1. Tickets of last X days with their status (closed/open),Low,,Data aggregation
+Are there any customers on paid plan who have created support tickets in the last X days,Customer Support,"1. Tickets of last X days with the email of the submitter, 2. Get Users for those emails 3. Get Projects with Plans for those users",Medium,Following connections,Multi-step data retrieval
+Get top N customers with most requests,Customer Support,1. ProjectIDs from Requests with requests sorted,Medium,Smart search strategy,Data aggregation
+Which free plan users have high usage,Customer Support,"1. Projects on ""free"" Plan 2. Requests for those projects ",Medium,Following connections,"Multi-step retrieval, Data aggregation"
+What’s the median resolution time of our support tickets in the last X days,Customer Support,1. Tickets of last X days with creation time. 2. Last comment of each ticket with creation time,High,"Following connections, Compute, Smart search strategy",Data aggregation
+Which customers have created the most number of tickets,Customer Support,1. All Tickets with their email/id,Medium,Smart search strategy,Data aggregation
+How many support tickets are related to downtime issues?,Customer Support,1. All Tickets ,Medium,Compute,Bulk classification
+Get all downtime issues since Aug 2023 and summarize key reason for downtime,Customer Support,1. Tickets since Aug 2023,Medium,Compute,Bulk classification
+Summarize the top complaints by users from support tickets in the last X days? ,Customer Support,1. Tickets of last X days with Ticket Comments,Medium,Compute,Bulk insights
+"Categorize all tickets without type as one of operational, feature request, bug report, how-to or others.",Customer Support,1. Tickets with type=null,High,"Smart search strategy, Compute",Bulk classification
+"Which users are at risk of churn, look at usage, support tickets, etc?",Customer Support,1. Tickets from N days ago 2. Projects where Usage is low or zero 3. Projects where Errors are high,High,"Following connections, Compute","Multi-step retrieval, bulk classification"
+Get me summary of project usage for customers who have downgraded plans in the last 30 days,Customer Support,1. Projects with Plan Changes for last 30 days.,Medium,"Smart search strategy, Compute",Multi-step retrieval
+Which entitlements on paid plans are enabled for the least number of projects?,Customer Support,1. Entitlements for paid plans from Project Entitlement Catalog. 2. Entitlement for each Project from Project Entitlement Access,High,"Compute, Following connections",Bulk insights
+Can you figure out what all plans is “enable_collaboration” entitlement a part of?,Customer Support,1. EntitlementID from Project Entitlement catalog 2. PlanID for EntitlementID in Plan Entitlement Access,Medium,Following connections,Bulk insights
+Give summary of what entitlements got added and what got removed for all the plans,Customer Support,1. All Entitlements from Project Entitlements Catalog. 2. All Entitlements from Plan Entitlement Access,Medium,Compute,Data visualization
+Are there any support tickets that have not been responded to in the last X days,Customer Support,1. Tickets and Ticket Comments of last X days,Medium,Smart search strategy,Bulk classification
+Give me a summary of project creations in last X days,Customer Support,1. Projects created in the last X days,Low,,Data visualization
+When did tina.jackson@gray-smith.com signup,Customer Support,1. User,Low,,
+How many projects did tina.jackson@gray-smith.com create,Customer Support,1. UserID from User 2. Projects with UserID,Medium,Following connections,Data aggregation
+Has tina.jackson@gray-smith.com switched the type of plan for his project ?,Customer Support,1. Get UserID from User 2. Get Projects with UserID 3. Get Project Plan Changes for ProjectID,Medium,Following connections,Multi-step retrieval
+Is tina.jackson@gray-smith.com on a paid plan?,Customer Support,1. UserID from User 2. Get Projects with UserID 3. Get Project Plan Changes for ProjectID,Medium,Following connections,Multi-step retrieval
+Which users have generated the most revenue? Look at invoices to compute revenue.,Customer Support,1. Invoices and InvoiceItems grouped by CustomerID 2. User with CustomerID,High,"Smart search strategy, Following connections",Data aggregation
+"For all the base plan projects, get me their invoice amounts.",Customer Support,"1. ProjectIDs from Project Plan Changelogs where latest plan  = ""base"". 2. Invoices for those projects",High,"Smart search strategy, Following connections",Multi-step retrieval
+Get me all invoices data for tina.jackson@gray-smith.com,Customer Support,1. CustomerID from User 2.  Invoices and Invoice Items for CustomerID,Medium,Following connections,Multi-step retrieval
+"Help me prioritize support ticket #1234 amongst other open tickets based on user's plan, revenue and usage",Customer Support,"1. Tickets with status=open 2. Project from project_name or submitter email,3. Plan from Project 4. Invoices from project 5. Usage from Project",High,"Following connections, Smart search strategy","Multi-step retrieval, Bulk classification"
+Are there any support tickets similar to #1234 ,Customer Support,1. All Tickets with Ticket Comments,Medium,Smart search strategy,Bulk classification
+How many tickets since monday? ,Customer Support,1. Tickets since monday,Low,,Data aggregation
+Any urgent tickets created today?,Customer Support,1. Tickets created today,Medium,Compute ,Bulk classification
+Give summary of all tickets created today ,Customer Support,1. Tickets created today,Low,,Bulk insights
+Give summary of all tickets where customer responded today,Customer Support,1. Tickets with Tickets comments (created today),Medium,"Following connections, Smart search strategy","Structured search, Bulk insights"
+Get all tickets related to “mutations in mongodb” and summarize,Customer Support,1. All Tickets,Medium,Smart search strategy,Bulk insights
+Is there any support engineer who has a lot of open support tickets assigned to them?,Customer Support,1. Tickets with status=open,Medium,Smart search strategy/Compute,Data aggregation
+Help me assign a support engineer to ticket #1234 based on who has least open tickets assigned to them,Customer Support,1. Tickets with status=open,Medium,Smart search strategy/Compute,Data aggregation
+Give me a summary of overall support satisfaction for gray-smith.com,Customer Support,1. Emails/IDs for submitters from Acme.corp 2. Get Tickets with Ticket Comments by those users ,High,"Smart search strategy, Following connections",Bulk insights
+"How many open tickets do I have, get me the last comment and summary from each of those",Customer Support,1. Tickets with Ticket Comments where status=open and given AssigneeID,Medium,Smart search strategy,Bulk insights
+Get me all project details and usage stats for support ticket #1234,Customer Support,1. ProjectName/Email from Ticket  2. Project and Usage ,Medium,Following connections,Multi-step retrieval
+What's the average time in responding to a support ticket?,Customer Support,1. All Tickets with Ticket comments,High,"Smart search strategy, Compute",Data aggregation
+Suggest an assignee for ticket #1234 based on who has solved similar cases in the past,Customer Support,1. All Tickets with Ticket comments,High,"Smart search strategy, Compute",Bulk classification
+Get all support tickets which have not been responded to at all ,Customer Support,1. Tickets with Ticket Comments,Medium,Smart search strategy/Compute,Multi-step retrieval
+"For all tickets open for more than a week, tell me what they are blocked on?",Customer Support,"1.  Tickets with Ticket Comments with status=open, creation date > one week",Medium,Smart search strategy,Bulk insights
+Get the support ticket where tina.jackson@gray-smith.com had commented about performance issues with new update,Customer Support,1. Tickets with Ticket Comments,Medium,Smart search strategy,Point search
+Schedule a meeting called Monthly Review on the coming Wednesday at 4 PM and invite Wile E Coyote.,Email + Calendar,1. Create Event. 2. Create Event Attendee,Low,,Action
+Move the Monthly Review meeting to 5 pm.,Email + Calendar,1. Update Event,Low,,"Point Search, Action"
+Send a reminder about the Monthly Review meeting 2 hours before it starts.,Email + Calendar,1. Get Event 2. Create Reminder,Medium,Compute,"Point Search, Action"
+Find common time on Wile E Coyote and my calendar on Monday and schedule a meeting for 30 mins,Email + Calendar,1. Get Events 2. Create Event,Medium,Compute,"Point Search, Action"
+When is my next meeting?,Email + Calendar,1. Get Events ,Low,,Structured Search
+What does my schedule look like this week?,Email + Calendar,1. Get Events in time range,Low,,Data visualization
+Am I free at 3 PM on Thursday?,Email + Calendar,1. Get Events in time range,Low,,Structured Search
+Who all are invited to “Monthly Review” meeting?,Email + Calendar,1. Get Event with `title` 2. Get Event Attendees for the event,Medium,Following connections,Structured Search
+How many hours of meeting did I have this week?,Email + Calendar,1. Get Events in time range,Medium,Compute,Data aggregation
+How many hours of meeting with Acme.corp did I have this month,Email + Calendar,1. Get Events in time range,Medium,Smart search strategy/Compute,Data aggregation
+Set up a recurring meeting called Stand Up at 9 am every weekday starting this Monday.,Email + Calendar,1. Create Event,Low,,Action
+Show me unread emails from the past week which are important/urgent.,Email + Calendar,1. Get Emails in time range 2. Get Email Metadata,High,"Following connections, Compute",Bulk classification
+Get wile@acme.corp's latest email ,Email + Calendar,1. Get Email ,Medium,Smart search strategy,Structured search
+Send an email to wile@acme.corp asking for an update on his last email,Email + Calendar,"1. Search Email, Create Email",Medium,Smart search strategy,"Point search, Action"
+Summarize the emails from wile@acme.corp in the last week,Email + Calendar,"1. Get Emails in the last week from ""wile@acme.corp""",Medium,Smart search strategy,Bulk insights
+Remind me to follow up with wile@acme.corp if he doesn't reply by Friday.,Email + Calendar,,High,,Future task
+How have I spent my time on meetings this month,Email + Calendar,1. Get Emails in time range,Medium,Compute,Data visualization
+Who all do I email most often?,Email + Calendar,1. Get all Emails,Medium,Smart search strategy,Structured search
+Show me all travel confirmations in my inbox this month.,Email + Calendar,1. Get Emails in time range,Medium,Compute,Bulk classification
+What was that email I sent to wile@acme.corp about submitting my application to business school?,Email + Calendar,"1. Get Emails from ""wile@acme.corp""",High,"Smart search strategy, Compute",Point search
+Show me all emails about business school applications that I have recieved,Email + Calendar,1. Get all Emails,High,"Smart search strategy, Compute",Bulk classification
+Show me travel confirmation from American Airlines?,Email + Calendar,1. Get Emails,High,"Smart search strategy, Compute",Bulk classification
+Get all receipts from food orders this week,Email + Calendar,1. Get Emails in time range 2. Get attachments,High,"Following connections, Compute",Bulk classification
+"List my Uber receipt numbers, price amounts, and destinations from the last month",Email + Calendar,1. Get Emails in time range 2. Get attachments,High,"Following connections, Compute","Bulk classification, structured information extraction"
+Get my latest Brex statement,Email + Calendar,1. Get Emails,Medium,Smart search strategy,Point search
+"Summarize my upcoming business travel itinerary with flight numbers, hotels, car rentals, etc",Email + Calendar,1. Get Emails,High,"Smart search strategy, Compute","Point search, structured information extraction"
+Generate an expense report from all purchase receipts in this month.,Email + Calendar,1. Get Emails in time range 2. Get attachments,High,"Following connections, Compute","Bulk classification, structured information extraction"
+How many days did I spend traveling for business in the last quarter?,Email + Calendar,1. Get Emails in time range ,Medium,Compute,"Bulk classification, structured information extraction"
+"Extract the invoice numbers, amounts, and due dates from the email titled ""Vendor invoice"" from last week",Email + Calendar,1. Get Email 2. Get Attachments,High,"Following connections, Compute",Structured information extraction
+Which emails from the last week need follow-up ?,Email + Calendar,1. Get Emails in time range,Medium,Compute,Bulk classification
+Identify all emails where I committed to tasks and summarize any deadlines.,Email + Calendar,1. Get Emails,Medium,Compute,"Bulk classification, Bulk insights"
+List all emails where I was cc’d in legal conversations in the past 6 months.,Email + Calendar,1. Get Emails in time range,High,"Smart search strategy, Compute",Bulk classification
+Find me the email where I spoke to Wile Coyote about pricing strategy,Email + Calendar,1. Get Emails,High,"Smart search strategy, Compute",Point search
+"Get amounts and categorize all receipts from the last month into 'Meals,' 'Transport,' and 'Lodging' for expense filing.",Email + Calendar,1. Get Emails in time range,Medium,Compute,"Bulk classification, structured information extraction"
+Get me the latest status on Acme opportunity,Sales,,Low,,Structured search
+Summarize any interesting lead or contact activities that I should look into,Sales,,Hard,"Smart search strategy, Compute","Multi-step retrieval, Bulk insights"
+"Go through the activities in Acme opp and summarize any action items or next steps
+",Sales,,Medium,Following connections,Bulk insights
+Extract any common identified pain points for my opps,Sales,,Medium,Compute,Clustering
+Go through all call transcripts with Acme opp and extract any MEDDPICC details ,Sales,,Medium,Compute,Structured information extraction
+Show all opportunities closing this month,Sales,,Low,,Structured search
+Are there any follow up tasks for me to be done today,Sales,,Medium,Compute,Bulk insights
+What’s the average length of our sales cycle this quarter,Sales,,Medium,Compute,Data aggregation
+What’s the average length of our sales cycle this year,Sales,,High,"Smart search strategy, Compute",Data aggregation
+What renewals are coming up in the next 30 days,Sales,,Medium,Compute,Structured search
+What deals are set to close this fiscal quarter,Sales,,Medium,Compute,Structured search
+How many accounts do we have where XYZ=true,Sales,,Low,,Structured search
+How many accounts with ACBD=true are assigned to Wile,Sales,,Medium,Smart search strategy,Structured search
+How long did it take to close Acme 2024?,Sales,,Medium,Compute,Data aggregation
+How many accounts does Wile own?,Sales,,Low,,Data aggregation
+How many leads were created this week?,Sales,,Low,,Data aggregation
+What is the breakup of lead sources this week?,Sales,,Medium,Compute,Data visualization
+Can you summarize lead sources for this week?,Sales,,Medium,Compute,Bulk insights
+When was the last email from Acme opp,Sales,,Medium,Smart search strategy,Structured search/Point search
+Are there any next steps for an opp which doesn't have a corresponding task created ?,Sales,,Medium,Following connections,Bulk insights
+How many deals have been won by sales representatives this quarter?,Sales,,Medium,Compute,Structured search
+Provide a summary of the first renewal for Acme,Sales,,Medium,Compute,Point search
+When was the last touchpoint with Acme,Sales,,Low,,Structured search
+What happened in the last touch point with Acme,Sales,,Medium,Following connections,Multi-step retrieval
+Summarize everything that happened with Acme in Oct,Sales,,Medium,Following connections,Bulk insights
+Which opportunities are taking the longest time to close?,Sales,,Medium,Compute,Data aggregation
+What is the total dollar amount of separation pay that has been issued in the past [insert period of time]?,HR,,Medium,Smart search strategy,Data aggregation
+What is the relationship between US employee ages and 401(k) contribution percentage?,HR,,Medium,Smart search strategy,Data visualization
+What is the average hours count and dollar amount of PTO paid out to departing team members?,HR,,Medium,Smart search strategy,Data aggregation
+"What dates of the year do most people request PTO, by country?",HR,,Medium,Smart search strategy,Data visualization
+How many PTO days have people taken on average in this calendar/fiscal year?,HR,,Medium,Smart search strategy,Data aggregation
+Generate a list of people who haven’t completed task X,HR,,Medium,Smart search strategy,Structured search
+Show average Flexible Spending Account usage over the course of the year.,HR,,High,"Smart search strategy, Compute","Data aggregation, data visualization"
+What is the average amount of money that team members contributed to their HSA accounts over the past [insert period of time]?,HR,,Medium,Smart search strategy,Data aggregation
+Show me the trend in HSA plan enrollment over time in relation to the employer HSA contribution amount.,HR,,High,"Smart search strategy, Compute",Data visualization
+"What is the total company cost impact of benefit enrollment changes effective January 1, Year?",HR,,High,"Smart search strategy, Compute",Data aggregation
+What are the average team member performance ratings by team and geography?,HR,,Medium,Smart search strategy,Data aggregation
+Get manager feedback for team member X for the last 2 years,HR,,Medium,Smart search strategy,Multi-step retrieval
+Summarize the most common team member attributes in performance feedback.,HR,,Medium,Compute,Bulk insights
+Who received a compensation change outside of [insert period of time]?,HR,,High,"Smart search strategy, Compute",Multi-step retrieval
+"Show issues with the server and enhancements labels but not ""long term"" label.",Engineering Management,,High,"Smart search strategy, Compute",Structured search
+Prioritize open issues based on comments and reactions.,Engineering Management,,Medium,Smart search strategy,Bulk insights
+Tell me which open issues has no developer responded to? Look for developers from the Acme org,Engineering Management,,High,"Smart search strategy, Compute",Structured search
+Categorize open issues without any labels by understanding the issue. Get existing labels from repo,Engineering Management,,High,"Smart search strategy, Compute",Bulk classification
+Who are the top contributors? Look at PRs merged,Engineering Management,,Medium,Smart search strategy,Data aggregation
+Who is reviewing the most number of PRs?,Engineering Management,,Medium,Smart search strategy,Data aggregation
+Give me a summary of all contributions by wile@acme.corp in `app` repo. Look at commits contributed,Engineering Management,,Medium,Smart search strategy,Bulk insights
+How much time did it take to review PR #1234?,Engineering Management,,Medium,Compute,Data aggregation
+Suggest a reviewer for PR 4567 by seeing who has contributed the most to the files that have changed in the PRs and previous commiters.,Engineering Management,,High,"Following connections, Compute",Multi-step retrieval
+Summarize the themes in the issues and discussions created this month,Engineering Management,,Medium,Compute,Clustering
+How often are tests failing on PRs? Share some stats,Engineering Management,,Medium,Smart search strategy,"Data visualization, Data aggregation"
+Find issues which can potentially be closed by the fix in PR #1234,Engineering Management,,High,"Smart search strategy, Compute",Bulk classification
+Create release notes from commit hash `abcd` to latest commit in main,Engineering Management,,Medium,Smart search strategy,Multi-step retrieval
+What are the PRs going in the next release?,Engineering Management,,Medium,Smart search strategy,Multi-step retrieval
+Find issues similar to issue #1234,Engineering Management,,Medium,Smart search strategy,Bulk classification
+Are there any issues related to performance since the last release ,Engineering Management,,High,"Smart search strategy, Compute","Structured search, Bulk classification"
+Are there any support tickets related to issue #1234,Engineering Management,,Medium,Smart search strategy,"Multi-step retrieval, Bulk classification"
+Get all issues created by paid plan users,Engineering Management,,High,"Following connections, Smart search strategy",Multi-step retrieval
+Are there any support tickets of type `feature-request` which don't have a Github ticket,Engineering Management,,High,"Smart search strategy, Compute","Multi-step retrieval, Bulk classification"
+Which PRs have been open for more than 30 days,Engineering Management,,Medium,Smart search strategy,Structured search
+What are the DORA metrics for app repo,Engineering Management,,High,"Following connections, Compute",Multi-step retrieval
+"How many PRs have closed this month
+",Engineering Management,,Medium,Compute,Data aggregation
+What's the average number of revisions on a PR before it is approved,Engineering Management,,High,"Following connections, Compute",Data aggregation
+Any contributor communicating negatively on issues and PR comments in last 30 days?,Engineering Management,,High,"Smart search strategy, Compute","Multi-step retrieval, Bulk classification"
+Who are new contributors in this repo with decent contribution? Look at PRs merged and lines of code changed,Engineering Management,,Medium,Smart search strategy,Multi-step retrieval
+Are there issues in the repo which are related to adding appropriate documentation,Engineering Management,,Medium,Compute,Bulk classification
+Can you give a count of bug fixes over last month,Engineering Management,,Medium,Compute,"Bulk classification, Data aggregation"
+How many PRs have been merged related to performance optimization,Engineering Management,,Medium,Compute,"Bulk classification, Data aggregation"
+"Get me the commit that introduced ""X"" feature in the code base",Engineering Management,,,,
