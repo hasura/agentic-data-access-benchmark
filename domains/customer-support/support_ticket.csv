@@ -233,7 +233,7 @@ Monitoring shows:
 - Error rate: Increasing with column access denied
 
 What's the recommended resource configuration for our workload?",,7913,2,2024-07-27 18:29:53.557323+00,https://hasura.zendesk.com/agent/tickets/11
-12,t,urgent,closed,Microsoft Azure AD integration not working,"Hi,
+12,t,urgent,pending,Microsoft Azure AD integration not working,"Hi,
 
 We're having trouble integrating Microsoft Azure AD with Hasura. Configuration:
 
